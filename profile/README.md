@@ -26,6 +26,17 @@ Open research platform targeting 99%+ LLM reliability through ensembles, hedging
 | [crucible_ui](https://github.com/North-Shore-AI/crucible_ui) | Phoenix LiveView dashboard for the Crucible ML reliability stack |
 | [crucible_xai](https://github.com/North-Shore-AI/crucible_xai) | Explainable AI (XAI) tools for the Crucible framework |
 
+## Ingot Labeling Stack
+
+Human-in-the-loop labeling infrastructure for ML datasets with inter-rater reliability.
+
+| Repository | Description |
+|------------|-------------|
+| [anvil](https://github.com/North-Shore-AI/anvil) | Labeling queue library for managing human labeling workflows |
+| [forge](https://github.com/North-Shore-AI/forge) | Sample factory library for generating, transforming, and computing ... |
+| [ingot](https://github.com/North-Shore-AI/ingot) | Phoenix LiveView interface for sample generation and human labeling... |
+| [labeling_ir](https://github.com/North-Shore-AI/labeling_ir) | Shared IR structs for the North Shore labeling stack (Forge/Anvil/I... |
+
 ## ML Safety & Quality
 
 | Repository | Description |
