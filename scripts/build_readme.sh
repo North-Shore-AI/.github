@@ -20,6 +20,9 @@ STARS=$(echo "$REPOS" | jq '[.[] | select(.topics | index("nshkr-archive") | not
 # Crucible core repos (crucible_*)
 CRUCIBLE_CORE=$(echo "$REPOS" | jq -r '[.[] | select(.name | startswith("crucible_"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
 
+# Ingot labeling stack
+INGOT=$(echo "$REPOS" | jq -r '[.[] | select(.topics | index("nshkr-ingot"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
+
 # ML Safety repos (tagged nshkr-crucible but not crucible_*)
 SAFETY=$(echo "$REPOS" | jq -r '[.[] | select((.topics | index("nshkr-crucible")) and (.name | startswith("crucible_") | not) and (.name != "cns_crucible"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
 
@@ -50,6 +53,19 @@ Open research platform targeting 99%+ LLM reliability through ensembles, hedging
 $CRUCIBLE_CORE
 
 EOF
+
+if [ -n "$INGOT" ]; then
+cat >> profile/README.md << EOF
+## Ingot Labeling Stack
+
+Human-in-the-loop labeling infrastructure for ML datasets with inter-rater reliability.
+
+| Repository | Description |
+|------------|-------------|
+$INGOT
+
+EOF
+fi
 
 if [ -n "$SAFETY" ]; then
 cat >> profile/README.md << EOF
