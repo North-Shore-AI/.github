@@ -2,7 +2,7 @@
 
 Reliability-first AI infrastructure on Elixir/BEAM. We build systems that make LLMs behave predictably in production.
 
-**27 public repos** · **5 stars**
+**38 public repos** · **17 stars**
 
 ---
 
@@ -44,11 +44,19 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 | [ExDataCheck](https://github.com/North-Shore-AI/ExDataCheck) | Data validation and quality library for ML pipelines in Elixir |
 | [ExFairness](https://github.com/North-Shore-AI/ExFairness) | Fairness and bias detection library for Elixir AI/ML systems |
 | [LlmGuard](https://github.com/North-Shore-AI/LlmGuard) | AI Firewall and guardrails for LLM-based Elixir applications |
+| [datasets_ex](https://github.com/North-Shore-AI/datasets_ex) | Dataset management library for ML experiments—loaders for SciFact, ... |
+| [eval_ex](https://github.com/North-Shore-AI/eval_ex) | Model evaluation harness for standardized benchmarking—comprehensiv... |
+| [metrics_ex](https://github.com/North-Shore-AI/metrics_ex) | Metrics aggregation and alerting for ML experiments—multi-backend e... |
 
 ## Infrastructure
 
 | Repository | Description |
 |------------|-------------|
+| [hf_hub_ex](https://github.com/North-Shore-AI/hf_hub_ex) | Elixir client for HuggingFace Hub—dataset/model metadata, file down... |
+| [nsai_gateway](https://github.com/North-Shore-AI/nsai_gateway) | Unified API gateway for the NSAI ecosystem—authentication (JWT, API... |
+| [nsai_registry](https://github.com/North-Shore-AI/nsai_registry) | Service discovery and registry for the NSAI ecosystem—distributed r... |
+| [pilot](https://github.com/North-Shore-AI/pilot) | Interactive CLI and REPL for the NSAI ecosystem—unified interface t... |
+| [tiktoken_ex](https://github.com/North-Shore-AI/tiktoken_ex) | Pure Elixir TikToken-style byte-level BPE tokenizer (Kimi K2 compat... |
 | [tinkerer](https://github.com/North-Shore-AI/tinkerer) | Chiral Narrative Synthesis workspace for Thinker/Tinker LoRA pipeli... |
 | [tinkex](https://github.com/North-Shore-AI/tinkex) | Elixir SDK for the Tinker ML platform—LoRA training, sampling, and ... |
 
@@ -63,6 +71,7 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 
 | Repository | Description |
 |------------|-------------|
+| [embed_ex](https://github.com/North-Shore-AI/embed_ex) | Vector embeddings service for Elixir—multi-provider support (OpenAI... |
 | [ex_topology](https://github.com/North-Shore-AI/ex_topology) | Pure Elixir library for graph topology, TDA, and computational topo... |
 | [nx_penalties](https://github.com/North-Shore-AI/nx_penalties) | Composable regularization penalties for Elixir Nx. L1/L2/Elastic Ne... |
 
@@ -74,4 +83,4 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 
 [@nshkrdotcom](https://github.com/nshkrdotcom)
 
-_Updated 2025-12-06_
+_Updated 2025-12-21_
