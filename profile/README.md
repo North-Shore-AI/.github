@@ -2,7 +2,7 @@
 
 Reliability-first AI infrastructure on Elixir/BEAM. We build systems that make LLMs behave predictably in production.
 
-**38 public repos** · **17 stars**
+**39 public repos** · **17 stars**
 
 ---
 
@@ -71,6 +71,7 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 
 | Repository | Description |
 |------------|-------------|
+| [chz_ex](https://github.com/North-Shore-AI/chz_ex) | Elixir port of OpenAI's chz library - a powerful configuration mana... |
 | [embed_ex](https://github.com/North-Shore-AI/embed_ex) | Vector embeddings service for Elixir—multi-provider support (OpenAI... |
 | [ex_topology](https://github.com/North-Shore-AI/ex_topology) | Pure Elixir library for graph topology, TDA, and computational topo... |
 | [nx_penalties](https://github.com/North-Shore-AI/nx_penalties) | Composable regularization penalties for Elixir Nx. L1/L2/Elastic Ne... |
