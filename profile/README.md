@@ -2,7 +2,7 @@
 
 Reliability-first AI infrastructure on Elixir/BEAM. We build systems that make LLMs behave predictably in production.
 
-**39 public repos** · **17 stars**
+**40 public repos** · **17 stars**
 
 ---
 
@@ -46,6 +46,7 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 | [LlmGuard](https://github.com/North-Shore-AI/LlmGuard) | AI Firewall and guardrails for LLM-based Elixir applications |
 | [datasets_ex](https://github.com/North-Shore-AI/datasets_ex) | Dataset management library for ML experiments—loaders for SciFact, ... |
 | [eval_ex](https://github.com/North-Shore-AI/eval_ex) | Model evaluation harness for standardized benchmarking—comprehensiv... |
+| [hf_datasets_ex](https://github.com/North-Shore-AI/hf_datasets_ex) | HuggingFace Datasets for Elixir - A native Elixir port of the popul... |
 | [metrics_ex](https://github.com/North-Shore-AI/metrics_ex) | Metrics aggregation and alerting for ML experiments—multi-backend e... |
 
 ## Infrastructure
