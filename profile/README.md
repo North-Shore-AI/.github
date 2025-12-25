@@ -60,6 +60,7 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 | [tiktoken_ex](https://github.com/North-Shore-AI/tiktoken_ex) | Pure Elixir TikToken-style byte-level BPE tokenizer (Kimi K2 compat... |
 | [tinkerer](https://github.com/North-Shore-AI/tinkerer) | Chiral Narrative Synthesis workspace for Thinker/Tinker LoRA pipeli... |
 | [tinkex](https://github.com/North-Shore-AI/tinkex) | Elixir SDK for the Tinker ML platform—LoRA training, sampling, and ... |
+| [tinkex_cookbook](https://github.com/North-Shore-AI/tinkex_cookbook) | Elixir port of tinker-cookbook: training and evaluation recipes for... |
 
 ## Research
 
@@ -85,4 +86,4 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 
 [@nshkrdotcom](https://github.com/nshkrdotcom)
 
-_Updated 2025-12-24_
+_Updated 2025-12-25_
