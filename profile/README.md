@@ -2,7 +2,7 @@
 
 Reliability-first AI infrastructure on Elixir/BEAM. We build systems that make LLMs behave predictably in production.
 
-**40 public repos** · **17 stars**
+**44 public repos** · **17 stars**
 
 ---
 
@@ -15,14 +15,18 @@ Open research platform targeting 99%+ LLM reliability through ensembles, hedging
 | [crucible_adversary](https://github.com/North-Shore-AI/crucible_adversary) | Adversarial testing and robustness evaluation for the Crucible fram... |
 | [crucible_bench](https://github.com/North-Shore-AI/crucible_bench) | Statistical testing and analysis framework for AI research |
 | [crucible_datasets](https://github.com/North-Shore-AI/crucible_datasets) | Dataset management and caching for AI research benchmarks |
+| [crucible_deployment](https://github.com/North-Shore-AI/crucible_deployment) | ML model deployment for the Crucible ecosystem. vLLM and Ollama int... |
 | [crucible_ensemble](https://github.com/North-Shore-AI/crucible_ensemble) | Multi-model ensemble voting strategies for LLM reliability |
 | [crucible_examples](https://github.com/North-Shore-AI/crucible_examples) | Interactive Phoenix LiveView demonstrations of the Crucible Framewo... |
+| [crucible_feedback](https://github.com/North-Shore-AI/crucible_feedback) | ML feedback loop management for the Crucible ecosystem. Quality mon... |
 | [crucible_framework](https://github.com/North-Shore-AI/crucible_framework) | CrucibleFramework: A scientific platform for LLM reliability resear... |
 | [crucible_harness](https://github.com/North-Shore-AI/crucible_harness) | Experimental research framework for running AI benchmarks at scale |
 | [crucible_hedging](https://github.com/North-Shore-AI/crucible_hedging) | Request hedging for tail latency reduction in distributed systems |
 | [crucible_ir](https://github.com/North-Shore-AI/crucible_ir) | Intermediate Representation for the Crucible ML reliability ecosystem |
+| [crucible_model_registry](https://github.com/North-Shore-AI/crucible_model_registry) | ML model registry for the Crucible ecosystem. Artifact storage, mod... |
 | [crucible_telemetry](https://github.com/North-Shore-AI/crucible_telemetry) | Advanced telemetry collection and analysis for AI research |
 | [crucible_trace](https://github.com/North-Shore-AI/crucible_trace) | Structured causal reasoning chain logging for LLM transparency |
+| [crucible_train](https://github.com/North-Shore-AI/crucible_train) | ML training orchestration for the Crucible ecosystem. Distributed t... |
 | [crucible_ui](https://github.com/North-Shore-AI/crucible_ui) | Phoenix LiveView dashboard for the Crucible ML reliability stack |
 | [crucible_xai](https://github.com/North-Shore-AI/crucible_xai) | Explainable AI (XAI) tools for the Crucible framework |
 
@@ -86,4 +90,4 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 
 [@nshkrdotcom](https://github.com/nshkrdotcom)
 
-_Updated 2025-12-25_
+_Updated 2025-12-26_
