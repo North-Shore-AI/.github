@@ -2,7 +2,7 @@
 
 Reliability-first AI infrastructure on Elixir/BEAM. We build systems that make LLMs behave predictably in production.
 
-**44 public repos** · **17 stars**
+**44 public repos** · **18 stars**
 
 ---
 
@@ -90,4 +90,4 @@ Human-in-the-loop labeling infrastructure for ML datasets with inter-rater relia
 
 [@nshkrdotcom](https://github.com/nshkrdotcom)
 
-_Updated 2025-12-27_
+_Updated 2025-12-28_
