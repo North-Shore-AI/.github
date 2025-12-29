@@ -44,6 +44,10 @@ Reliability-first AI infrastructure on Elixir/BEAM. We build systems that make L
 
 ---
 
+![Ecosystem Dependency Map](assets/ecosystem_map.png)
+
+---
+
 ## Crucible Reliability Stack
 
 Open research platform targeting 99%+ LLM reliability through ensembles, hedging, and statistical testing.
