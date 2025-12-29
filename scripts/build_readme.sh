@@ -5,126 +5,50 @@ cd "$(dirname "$0")/.."
 # Fetch all PUBLIC repos from North-Shore-AI
 REPOS=$(gh api --paginate "orgs/North-Shore-AI/repos?per_page=100&type=public" | jq '[.[] | select(.private == false and .archived == false and .fork == false)]')
 
-# Categorize repos
-categorize() {
-  echo "$REPOS" | jq -r --arg cat "$1" '[.[] | select(
-    (.topics | index($cat)) or
-    (if $cat == "crucible" then (.name | startswith("crucible_")) else false end)
-  )] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"'
-}
-
-# Stats
+# Stats (excluding archived)
 TOTAL=$(echo "$REPOS" | jq '[.[] | select(.topics | index("nshkr-archive") | not)] | length')
 STARS=$(echo "$REPOS" | jq '[.[] | select(.topics | index("nshkr-archive") | not) | .stargazers_count] | add // 0')
 
-# Crucible core repos (crucible_*)
-CRUCIBLE_CORE=$(echo "$REPOS" | jq -r '[.[] | select(.name | startswith("crucible_"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
+# Helper function to generate repo table rows
+gen_rows() {
+  local filter="$1"
+  echo "$REPOS" | jq -r "$filter"' | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"'
+}
 
-# Ingot labeling stack
-INGOT=$(echo "$REPOS" | jq -r '[.[] | select(.topics | index("nshkr-ingot"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
+# Crucible core repos (crucible_* prefix OR nshkr-crucible topic)
+CRUCIBLE_REPOS=$(gen_rows '[.[] | select((.name | startswith("crucible_")) or (.topics | index("nshkr-crucible")))]')
 
-# ML Safety repos (tagged nshkr-crucible but not crucible_*)
-SAFETY=$(echo "$REPOS" | jq -r '[.[] | select((.topics | index("nshkr-crucible")) and (.name | startswith("crucible_") | not) and (.name != "cns_crucible"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
+# Ingot labeling stack (nshkr-ingot topic)
+INGOT_REPOS=$(gen_rows '[.[] | select(.topics | index("nshkr-ingot"))]')
 
-# Infrastructure
-INFRA=$(echo "$REPOS" | jq -r '[.[] | select(.topics | index("nshkr-ai-infra"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
+# Research repos (nshkr-research topic)
+RESEARCH_REPOS=$(gen_rows '[.[] | select(.topics | index("nshkr-research"))]')
 
-# Research
-RESEARCH=$(echo "$REPOS" | jq -r '[.[] | select(.topics | index("nshkr-research"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
+# Safety repos (nshkr-crucible but not crucible_* and not cns_crucible)
+SAFETY_REPOS=$(echo "$REPOS" | jq -r '[.[] | select((.topics | index("nshkr-crucible")) and (.name | startswith("crucible_") | not) and (.name != "cns_crucible"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
 
-# Data
-DATA=$(echo "$REPOS" | jq -r '[.[] | select(.topics | index("nshkr-data"))] | sort_by(.name) | .[] | "| [\(.name)](https://github.com/North-Shore-AI/\(.name)) | \(.description // "" | if length > 70 then .[0:67] + "..." else . end) |"')
+# Infrastructure (nshkr-ai-infra topic)
+INFRA_REPOS=$(gen_rows '[.[] | select(.topics | index("nshkr-ai-infra"))]')
 
-cat > profile/README.md << EOF
-# North Shore AI
+# Data & Utilities (nshkr-data OR nshkr-utility topic)
+DATA_REPOS=$(gen_rows '[.[] | select((.topics | index("nshkr-data")) or (.topics | index("nshkr-utility")))]')
 
-Reliability-first AI infrastructure on Elixir/BEAM. We build systems that make LLMs behave predictably in production.
+# Read template
+TEMPLATE=$(cat templates/README.template.md)
 
-**$TOTAL public repos** · **$STARS stars**
+# Substitute placeholders
+OUTPUT="${TEMPLATE//\{\{REPO_COUNT\}\}/$TOTAL}"
+OUTPUT="${OUTPUT//\{\{STAR_COUNT\}\}/$STARS}"
+OUTPUT="${OUTPUT//\{\{UPDATE_DATE\}\}/$(date -u +%Y-%m-%d)}"
 
----
+# Substitute repo tables (handle multiline content)
+OUTPUT=$(echo "$OUTPUT" | awk -v crucible="$CRUCIBLE_REPOS" '{gsub(/\{\{CRUCIBLE_REPOS\}\}/, crucible)}1')
+OUTPUT=$(echo "$OUTPUT" | awk -v ingot="$INGOT_REPOS" '{gsub(/\{\{INGOT_REPOS\}\}/, ingot)}1')
+OUTPUT=$(echo "$OUTPUT" | awk -v research="$RESEARCH_REPOS" '{gsub(/\{\{RESEARCH_REPOS\}\}/, research)}1')
+OUTPUT=$(echo "$OUTPUT" | awk -v safety="$SAFETY_REPOS" '{gsub(/\{\{SAFETY_REPOS\}\}/, safety)}1')
+OUTPUT=$(echo "$OUTPUT" | awk -v infra="$INFRA_REPOS" '{gsub(/\{\{INFRA_REPOS\}\}/, infra)}1')
+OUTPUT=$(echo "$OUTPUT" | awk -v data="$DATA_REPOS" '{gsub(/\{\{DATA_REPOS\}\}/, data)}1')
 
-![Ecosystem Dependency Map](assets/ecosystem_map.png)
-
----
-
-## Crucible Reliability Stack
-
-Open research platform targeting 99%+ LLM reliability through ensembles, hedging, and statistical testing.
-
-| Repository | Description |
-|------------|-------------|
-$CRUCIBLE_CORE
-
-EOF
-
-if [ -n "$INGOT" ]; then
-cat >> profile/README.md << EOF
-## Ingot Labeling Stack
-
-Human-in-the-loop labeling infrastructure for ML datasets with inter-rater reliability.
-
-| Repository | Description |
-|------------|-------------|
-$INGOT
-
-EOF
-fi
-
-if [ -n "$SAFETY" ]; then
-cat >> profile/README.md << EOF
-## ML Safety & Quality
-
-| Repository | Description |
-|------------|-------------|
-$SAFETY
-
-EOF
-fi
-
-if [ -n "$INFRA" ]; then
-cat >> profile/README.md << EOF
-## Infrastructure
-
-| Repository | Description |
-|------------|-------------|
-$INFRA
-
-EOF
-fi
-
-if [ -n "$RESEARCH" ]; then
-cat >> profile/README.md << EOF
-## Research
-
-| Repository | Description |
-|------------|-------------|
-$RESEARCH
-
-EOF
-fi
-
-if [ -n "$DATA" ]; then
-cat >> profile/README.md << EOF
-## Data & Tooling
-
-| Repository | Description |
-|------------|-------------|
-$DATA
-
-EOF
-fi
-
-cat >> profile/README.md << EOF
----
-
-**BEAM Native** · OTP supervision, telemetry, distributed resilience
-**Research Backed** · Every feature tied to reliability research
-**Production Ready** · Hex packages, docs, test suites
-
-[@nshkrdotcom](https://github.com/nshkrdotcom)
-
-_Updated $(date -u +%Y-%m-%d)_
-EOF
+echo "$OUTPUT" > profile/README.md
 
 echo "Done: $TOTAL repos, $STARS stars"

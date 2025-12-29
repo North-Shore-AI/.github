@@ -2,7 +2,7 @@
 
 **Reliability-first AI infrastructure on Elixir/BEAM**
 
-**50+ public repos**
+**45 public repos** | **18 stars**
 
 ---
 
@@ -27,10 +27,6 @@ Two industrial metaphors unify the ecosystem. The **Kitchen/Cookbook** pattern t
 | 5 | MLOps Assembly | crucible_train, crucible_model_registry, crucible_deployment, crucible_feedback |
 | 6 | Reliability & Safety | LlmGuard, crucible_ensemble, crucible_hedging, crucible_xai, crucible_adversary |
 | 7 | Foundational Utilities | tiktoken_ex, embed_ex, hf_hub_ex, hf_datasets_ex |
-
----
-
-![Ecosystem Dependency Map](assets/ecosystem_map.png)
 
 ---
 
@@ -63,44 +59,41 @@ Open research platform targeting 99%+ LLM reliability through ensembles, hedging
 
 | Repository | Description |
 |------------|-------------|
-| [crucible_framework](https://github.com/North-Shore-AI/crucible_framework) | ML experimentation orchestration, pipeline runner, stage definitions |
-| [crucible_ir](https://github.com/North-Shore-AI/crucible_ir) | Intermediate representation for ML pipelines (experiment, stage_def, reliability configs) |
-| [crucible_bench](https://github.com/North-Shore-AI/crucible_bench) | Statistical testing (t-tests, ANOVA, effect sizes, power analysis, normality tests) |
-| [crucible_ensemble](https://github.com/North-Shore-AI/crucible_ensemble) | Multi-model voting (majority, weighted, ranked-choice, semantic similarity) |
-| [crucible_hedging](https://github.com/North-Shore-AI/crucible_hedging) | Request hedging strategies (fixed, adaptive, percentile, workload-aware) |
-| [crucible_harness](https://github.com/North-Shore-AI/crucible_harness) | Experiment orchestration, progress tracking, report generation (HTML/LaTeX/Jupyter) |
-| [crucible_telemetry](https://github.com/North-Shore-AI/crucible_telemetry) | Research-grade instrumentation, metrics streaming, CSV/JSONL export |
-| [crucible_trace](https://github.com/North-Shore-AI/crucible_trace) | Causal reasoning chain logging, Mermaid diagram export |
-| [crucible_xai](https://github.com/North-Shore-AI/crucible_xai) | Explainable AI (LIME, SHAP, PDP/ICE, feature attribution, faithfulness validation) |
-| [crucible_ui](https://github.com/North-Shore-AI/crucible_ui) | Phoenix dashboard for ML experiments, ensemble/hedging visualization, telemetry streaming |
-| [crucible_examples](https://github.com/North-Shore-AI/crucible_examples) | Interactive demos with mock LLM system (ensemble voting, hedging, stats, tracing) |
-
-### MLOps Pipeline
-
-| Repository | Description |
-|------------|-------------|
-| [crucible_train](https://github.com/North-Shore-AI/crucible_train) | Unified ML training (supervised, RL, DPO, distillation, multi-backend logging) |
-| [crucible_model_registry](https://github.com/North-Shore-AI/crucible_model_registry) | Model versioning, artifact storage (S3/HF/local), lineage graphs |
-| [crucible_deployment](https://github.com/North-Shore-AI/crucible_deployment) | Model deployment (vLLM/Ollama/TGI/K8s), canary/blue-green rollouts |
-| [crucible_feedback](https://github.com/North-Shore-AI/crucible_feedback) | Production feedback ingestion, drift detection, active learning, retraining triggers |
-
-### Training Infrastructure (Kitchen)
-
-| Repository | Description |
-|------------|-------------|
-| [crucible_kitchen](https://github.com/North-Shore-AI/crucible_kitchen) | Backend-agnostic ML training orchestration engine |
-| [tinkex_cookbook](https://github.com/North-Shore-AI/tinkex_cookbook) | Training recipes for Tinker platform |
-| [tinkex](https://github.com/North-Shore-AI/tinkex) | Elixir SDK for Tinker ML platform (API, sampling, training, tokenizer) |
-| [tinkerer](https://github.com/North-Shore-AI/tinkerer) | Research workspace for CNS experiments |
+| [ExDataCheck](https://github.com/North-Shore-AI/ExDataCheck) | Data validation and quality library for ML pipelines in Elixir |
+| [ExFairness](https://github.com/North-Shore-AI/ExFairness) | Fairness and bias detection library for Elixir AI/ML systems |
+| [LlmGuard](https://github.com/North-Shore-AI/LlmGuard) | AI Firewall and guardrails for LLM-based Elixir applications |
+| [cns_crucible](https://github.com/North-Shore-AI/cns_crucible) |  |
+| [crucible_adversary](https://github.com/North-Shore-AI/crucible_adversary) | Adversarial testing and robustness evaluation for the Crucible fram... |
+| [crucible_bench](https://github.com/North-Shore-AI/crucible_bench) | Statistical testing and analysis framework for AI research |
+| [crucible_datasets](https://github.com/North-Shore-AI/crucible_datasets) | Dataset management and caching for AI research benchmarks |
+| [crucible_deployment](https://github.com/North-Shore-AI/crucible_deployment) | ML model deployment for the Crucible ecosystem. vLLM and Ollama int... |
+| [crucible_ensemble](https://github.com/North-Shore-AI/crucible_ensemble) | Multi-model ensemble voting strategies for LLM reliability |
+| [crucible_examples](https://github.com/North-Shore-AI/crucible_examples) | Interactive Phoenix LiveView demonstrations of the Crucible Framewo... |
+| [crucible_feedback](https://github.com/North-Shore-AI/crucible_feedback) | ML feedback loop management for the Crucible ecosystem. Quality mon... |
+| [crucible_framework](https://github.com/North-Shore-AI/crucible_framework) | CrucibleFramework: A scientific platform for LLM reliability resear... |
+| [crucible_harness](https://github.com/North-Shore-AI/crucible_harness) | Experimental research framework for running AI benchmarks at scale |
+| [crucible_hedging](https://github.com/North-Shore-AI/crucible_hedging) | Request hedging for tail latency reduction in distributed systems |
+| [crucible_ir](https://github.com/North-Shore-AI/crucible_ir) | Intermediate Representation for the Crucible ML reliability ecosystem |
+| [crucible_kitchen](https://github.com/North-Shore-AI/crucible_kitchen) | Industrial ML training orchestration - backend-agnostic workflow en... |
+| [crucible_model_registry](https://github.com/North-Shore-AI/crucible_model_registry) | ML model registry for the Crucible ecosystem. Artifact storage, mod... |
+| [crucible_telemetry](https://github.com/North-Shore-AI/crucible_telemetry) | Advanced telemetry collection and analysis for AI research |
+| [crucible_trace](https://github.com/North-Shore-AI/crucible_trace) | Structured causal reasoning chain logging for LLM transparency |
+| [crucible_train](https://github.com/North-Shore-AI/crucible_train) | ML training orchestration for the Crucible ecosystem. Distributed t... |
+| [crucible_ui](https://github.com/North-Shore-AI/crucible_ui) | Phoenix LiveView dashboard for the Crucible ML reliability stack |
+| [crucible_xai](https://github.com/North-Shore-AI/crucible_xai) | Explainable AI (XAI) tools for the Crucible framework |
+| [datasets_ex](https://github.com/North-Shore-AI/datasets_ex) | Dataset management library for ML experiments—loaders for SciFact, ... |
+| [eval_ex](https://github.com/North-Shore-AI/eval_ex) | Model evaluation harness for standardized benchmarking—comprehensiv... |
+| [hf_datasets_ex](https://github.com/North-Shore-AI/hf_datasets_ex) | HuggingFace Datasets for Elixir - A native Elixir port of the popul... |
+| [metrics_ex](https://github.com/North-Shore-AI/metrics_ex) | Metrics aggregation and alerting for ML experiments—multi-backend e... |
 
 ### Data Labeling (Metalworking)
 
 | Repository | Description |
 |------------|-------------|
-| [forge](https://github.com/North-Shore-AI/forge) | Domain-agnostic sample factory for data pipelines |
-| [anvil](https://github.com/North-Shore-AI/anvil) | Labeling queue and governance toolkit for HITL workflows |
-| [ingot](https://github.com/North-Shore-AI/ingot) | Phoenix LiveView labeling UI module |
-| [labeling_ir](https://github.com/North-Shore-AI/labeling_ir) | Shared IR structs for labeling stack |
+| [anvil](https://github.com/North-Shore-AI/anvil) | Labeling queue library for managing human labeling workflows |
+| [forge](https://github.com/North-Shore-AI/forge) | Sample factory library for generating, transforming, and computing ... |
+| [ingot](https://github.com/North-Shore-AI/ingot) | Phoenix LiveView interface for sample generation and human labeling... |
+| [labeling_ir](https://github.com/North-Shore-AI/labeling_ir) | Shared IR structs for the North Shore labeling stack (Forge/Anvil/I... |
 
 ### CNS Dialectical Reasoning
 
@@ -108,9 +101,8 @@ Critic-Network Synthesis: structured argumentation for AI reasoning transparency
 
 | Repository | Description |
 |------------|-------------|
-| [cns](https://github.com/North-Shore-AI/cns) | Core framework (proposer/antagonist/synthesizer agents, critics, SNO graphs, topology metrics) |
-| [cns_crucible](https://github.com/North-Shore-AI/cns_crucible) | CNS + Crucible integration, SciFact experiments, topology demos |
-| [cns_ui](https://github.com/North-Shore-AI/cns_ui) | Phoenix LiveView UI for dialectical visualization, SNO explorer, training management |
+| [cns](https://github.com/North-Shore-AI/cns) | Chiral Narrative Synthesis - Dialectical reasoning framework for au... |
+| [cns_ui](https://github.com/North-Shore-AI/cns_ui) | Phoenix LiveView interface for CNS dialectical reasoning experiments |
 
 **CNS Dialectical Flow:**
 ```
@@ -126,40 +118,36 @@ Critics: Grounding, Logic, Novelty, Bias, Causal
 
 | Repository | Description |
 |------------|-------------|
-| [LlmGuard](https://github.com/North-Shore-AI/LlmGuard) | AI firewall (prompt injection, jailbreak, data leakage detection) |
-| [crucible_adversary](https://github.com/North-Shore-AI/crucible_adversary) | Adversarial testing (injection/extraction/jailbreak attacks, perturbations, defenses) |
-| [ExFairness](https://github.com/North-Shore-AI/ExFairness) | Bias detection (demographic parity, equalized odds, calibration), mitigation |
-| [ExDataCheck](https://github.com/North-Shore-AI/ExDataCheck) | Data validation (34 expectations: schema, statistical, temporal, string, ML) |
-
-### Dataset Management
-
-| Repository | Description |
-|------------|-------------|
-| [datasets_ex](https://github.com/North-Shore-AI/datasets_ex) | Custom/internal NSAI datasets with versioning and lineage tracking |
-| [crucible_datasets](https://github.com/North-Shore-AI/crucible_datasets) | HuggingFace integration, evaluation workflows (BLEU, ROUGE, F1) |
-| [hf_datasets_ex](https://github.com/North-Shore-AI/hf_datasets_ex) | Native HuggingFace Datasets port for Elixir |
-| [hf_hub_ex](https://github.com/North-Shore-AI/hf_hub_ex) | HuggingFace Hub API client |
-
-### Utilities
-
-| Repository | Description |
-|------------|-------------|
-| [tiktoken_ex](https://github.com/North-Shore-AI/tiktoken_ex) | Pure Elixir BPE tokenizer (Kimi K2 compatible) |
-| [embed_ex](https://github.com/North-Shore-AI/embed_ex) | Vector embeddings with multiple providers |
-| [chz_ex](https://github.com/North-Shore-AI/chz_ex) | Configuration management with CLI parsing (OpenAI chz port) |
-| [nx_penalties](https://github.com/North-Shore-AI/nx_penalties) | Composable regularization penalties for Nx |
-| [ex_topology](https://github.com/North-Shore-AI/ex_topology) | Topological Data Analysis (persistence diagrams, filtrations, fragility) |
-| [eval_ex](https://github.com/North-Shore-AI/eval_ex) | Model evaluation harness with comprehensive metrics |
-| [metrics_ex](https://github.com/North-Shore-AI/metrics_ex) | Operational metrics aggregation with exporters |
+| [ExDataCheck](https://github.com/North-Shore-AI/ExDataCheck) | Data validation and quality library for ML pipelines in Elixir |
+| [ExFairness](https://github.com/North-Shore-AI/ExFairness) | Fairness and bias detection library for Elixir AI/ML systems |
+| [LlmGuard](https://github.com/North-Shore-AI/LlmGuard) | AI Firewall and guardrails for LLM-based Elixir applications |
+| [datasets_ex](https://github.com/North-Shore-AI/datasets_ex) | Dataset management library for ML experiments—loaders for SciFact, ... |
+| [eval_ex](https://github.com/North-Shore-AI/eval_ex) | Model evaluation harness for standardized benchmarking—comprehensiv... |
+| [hf_datasets_ex](https://github.com/North-Shore-AI/hf_datasets_ex) | HuggingFace Datasets for Elixir - A native Elixir port of the popul... |
+| [metrics_ex](https://github.com/North-Shore-AI/metrics_ex) | Metrics aggregation and alerting for ML experiments—multi-backend e... |
 
 ### Infrastructure
 
 | Repository | Description |
 |------------|-------------|
-| [nsai_gateway](https://github.com/North-Shore-AI/nsai_gateway) | API Gateway (auth, rate limiting, routing, circuit breaker) |
-| [nsai_registry](https://github.com/North-Shore-AI/nsai_registry) | Service discovery and health monitoring |
-| [nsai_sites](https://github.com/North-Shore-AI/nsai_sites) | Public web presence (Cloudflare Workers) |
-| [pilot](https://github.com/North-Shore-AI/pilot) | CLI/REPL for ecosystem interaction |
+| [hf_hub_ex](https://github.com/North-Shore-AI/hf_hub_ex) | Elixir client for HuggingFace Hub—dataset/model metadata, file down... |
+| [nsai_gateway](https://github.com/North-Shore-AI/nsai_gateway) | Unified API gateway for the NSAI ecosystem—authentication (JWT, API... |
+| [nsai_registry](https://github.com/North-Shore-AI/nsai_registry) | Service discovery and registry for the NSAI ecosystem—distributed r... |
+| [pilot](https://github.com/North-Shore-AI/pilot) | Interactive CLI and REPL for the NSAI ecosystem—unified interface t... |
+| [tiktoken_ex](https://github.com/North-Shore-AI/tiktoken_ex) | Pure Elixir TikToken-style byte-level BPE tokenizer (Kimi K2 compat... |
+| [tinkerer](https://github.com/North-Shore-AI/tinkerer) | Chiral Narrative Synthesis workspace for Thinker/Tinker LoRA pipeli... |
+| [tinkex](https://github.com/North-Shore-AI/tinkex) | Elixir SDK for the Tinker ML platform—LoRA training, sampling, and ... |
+| [tinkex_cookbook](https://github.com/North-Shore-AI/tinkex_cookbook) | Elixir port of tinker-cookbook: training and evaluation recipes for... |
+| [work](https://github.com/North-Shore-AI/work) | NSAI.Work - Unified job scheduler for North-Shore-AI platform |
+
+### Data & Utilities
+
+| Repository | Description |
+|------------|-------------|
+| [chz_ex](https://github.com/North-Shore-AI/chz_ex) | Elixir port of OpenAI's chz library - a powerful configuration mana... |
+| [embed_ex](https://github.com/North-Shore-AI/embed_ex) | Vector embeddings service for Elixir—multi-provider support (OpenAI... |
+| [ex_topology](https://github.com/North-Shore-AI/ex_topology) | Pure Elixir library for graph topology, TDA, and computational topo... |
+| [nx_penalties](https://github.com/North-Shore-AI/nx_penalties) | Composable regularization penalties for Elixir Nx. L1/L2/Elastic Ne... |
 
 ---
 
@@ -179,4 +167,4 @@ Critics: Grounding, Logic, Novelty, Bias, Causal
 
 [@nshkrdotcom](https://github.com/nshkrdotcom)
 
-_Updated 2025-12-28_
+_Updated 2025-12-29_
