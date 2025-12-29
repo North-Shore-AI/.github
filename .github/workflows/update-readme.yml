@@ -1,4 +1,4 @@
-name: Update README
+name: Update README & Architecture
 
 on:
   schedule:
@@ -12,18 +12,27 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+
       - name: Build README
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x scripts/build_readme.sh
           ./scripts/build_readme.sh
-      - name: Commit
+
+      - name: Generate Architecture Docs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git diff --quiet profile/README.md || {
+          chmod +x scripts/generate_architecture.sh
+          ./scripts/generate_architecture.sh
+
+      - name: Commit Changes
+        run: |
+          git diff --quiet profile/README.md docs/ARCHITECTURE.md docs/dependencies.json 2>/dev/null || {
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add profile/README.md
-            git commit -m "Update README"
+            git add profile/README.md docs/ARCHITECTURE.md docs/dependencies.json
+            git commit -m "Update README and architecture docs"
             git push
           }

@@ -4,6 +4,8 @@
 
 **45 public repos** | **18 stars**
 
+> **[Interactive Architecture Explorer](https://nsai.space/architecture.html)** | **[Full Documentation](docs/ARCHITECTURE.md)**
+
 ---
 
 ## Executive Summary

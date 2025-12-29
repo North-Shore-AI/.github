@@ -4,6 +4,8 @@
 
 **{{REPO_COUNT}} public repos** | **{{STAR_COUNT}} stars**
 
+> **[Interactive Architecture Explorer](https://nsai.space/architecture.html)** | **[Full Documentation](docs/ARCHITECTURE.md)**
+
 ---
 
 ## Executive Summary
