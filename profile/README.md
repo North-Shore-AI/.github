@@ -2,7 +2,7 @@
 
 **Reliability-first AI infrastructure on Elixir/BEAM**
 
-**45 public repos** | **18 stars**
+**46 public repos** | **18 stars**
 
 > **[Interactive Architecture Explorer](https://nsai.space/architecture.html)** | **[Full Documentation](docs/ARCHITECTURE.md)**
 
@@ -133,6 +133,7 @@ Critics: Grounding, Logic, Novelty, Bias, Causal
 | Repository | Description |
 |------------|-------------|
 | [hf_hub_ex](https://github.com/North-Shore-AI/hf_hub_ex) | Elixir client for HuggingFace Hub—dataset/model metadata, file down... |
+| [hf_peft_ex](https://github.com/North-Shore-AI/hf_peft_ex) | Elixir port of HuggingFace's PEFT (Parameter-Efficient Fine-Tuning)... |
 | [nsai_gateway](https://github.com/North-Shore-AI/nsai_gateway) | Unified API gateway for the NSAI ecosystem—authentication (JWT, API... |
 | [nsai_registry](https://github.com/North-Shore-AI/nsai_registry) | Service discovery and registry for the NSAI ecosystem—distributed r... |
 | [pilot](https://github.com/North-Shore-AI/pilot) | Interactive CLI and REPL for the NSAI ecosystem—unified interface t... |
@@ -169,4 +170,4 @@ Critics: Grounding, Logic, Novelty, Bias, Causal
 
 [@nshkrdotcom](https://github.com/nshkrdotcom)
 
-_Updated 2025-12-31_
+_Updated 2026-01-01_

@@ -206,6 +206,11 @@
       "description": "Elixir client for HuggingFace Hub—dataset/model metadata, file downloads, caching, and authentication. The BEAM-native foundation for HF ecosystem ports."
     },
     {
+      "id": "hf_peft_ex",
+      "category": "infra",
+      "description": "Elixir port of HuggingFace's PEFT (Parameter-Efficient Fine-Tuning) library. Implements LoRA, AdaLoRA, IA3, prefix tuning, prompt tuning, and 30+ state-of-the-art PEFT methods for efficient neural network adaptation. Built for the BEAM ecosystem with native Nx/Axon integration."
+    },
+    {
       "id": "ex_topology",
       "category": "data",
       "description": "Pure Elixir library for graph topology, TDA, and computational topology"
