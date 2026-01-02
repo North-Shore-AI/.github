@@ -16,6 +16,8 @@ North Shore AI builds the ML reliability research ecosystem that Elixir deserves
 
 Two industrial metaphors unify the ecosystem. The **Kitchen/Cookbook** pattern treats ML training as a culinary operation: the kitchen provides infrastructure, cookbooks contain recipes, and practitioners are chefs executing them. The **Metalworking** pattern treats data labeling as manufacturing: raw data enters the forge, receives careful refinement on the anvil, and emerges as polished UI components (ingots) ready for crucible experimentation.
 
+![NSAI Ecosystem Vision](assets/NSAI_libs.webp)
+
 ---
 
 ## The 7-Tiered Architectural Model
