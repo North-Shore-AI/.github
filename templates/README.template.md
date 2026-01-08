@@ -1,85 +1,45 @@
 # North Shore AI
 
-**Reliability-first AI infrastructure on Elixir/BEAM**
+**Reliability-first ML infrastructure on Elixir/BEAM**
 
-**{{REPO_COUNT}} public repos** | **{{STAR_COUNT}} stars**
+> Building the ML reliability research ecosystem that Elixir deserves.
 
-> **[Interactive Architecture Explorer](https://nsai.space/architecture.html)** | **[Full Documentation](docs/ARCHITECTURE.md)**
+**{{REPO_COUNT}} repositories** | [nsai.online](https://nsai.online) | [nsai.space](https://nsai.space) | [nsai.store](https://nsai.store)
 
 ---
 
-## Executive Summary
+## Vision
 
 The Elixir/BEAM platform provides technical capabilities essential for production AI systems that other runtimes cannot match: lightweight process isolation enables thousands of concurrent model calls without shared state corruption, supervisor trees provide automatic failure recovery without human intervention, and hot code upgrades allow model updates without service interruption. These are not conveniences but prerequisites for systems targeting 99%+ reliability in adversarial production environments.
 
-North Shore AI builds the ML reliability research ecosystem that Elixir deserves. From statistical testing and ensemble voting to adversarial robustness and explainable AI, the stack addresses the full lifecycle of getting LLMs to behave predictably. The goal is world-class tooling that leverages BEAM's unique properties while remaining accessible to researchers and practitioners.
-
-Two industrial metaphors unify the ecosystem. The **Kitchen/Cookbook** pattern treats ML training as a culinary operation: the kitchen provides infrastructure, cookbooks contain recipes, and practitioners are chefs executing them. The **Metalworking** pattern treats data labeling as manufacturing: raw data enters the forge, receives careful refinement on the anvil, and emerges as polished UI components (ingots) ready for crucible experimentation.
-
-![NSAI Ecosystem Vision](assets/NSAI_libs.webp)
+North Shore AI builds ML infrastructure that leverages BEAM's unique properties. From statistical testing and ensemble voting to adversarial robustness and explainable AI, the stack addresses the full lifecycle of getting LLMs to behave predictably. The goal is world-class tooling that remains accessible to researchers and practitioners.
 
 ---
 
-## The 7-Tiered Architectural Model
+## Architecture
+
+### The 7-Tiered Model
 
 | Tier | Layer | Components |
 |------|-------|------------|
-| 1 | Public Interface | nsai_sites (Cloudflare Workers) |
-| 2 | Gateway & Orchestration | nsai_gateway, nsai_registry |
-| 3 | Processing Domains | Kitchen (training), Forge (data), CNS (reasoning) |
-| 4 | Core Framework | crucible_framework, crucible_ir, crucible_bench |
-| 5 | MLOps Assembly | crucible_train, crucible_model_registry, crucible_deployment, crucible_feedback |
-| 6 | Reliability & Safety | LlmGuard, crucible_ensemble, crucible_hedging, crucible_xai, crucible_adversary |
-| 7 | Foundational Utilities | tiktoken_ex, embed_ex, hf_hub_ex, hf_datasets_ex |
+| 1 | **Interface** | Phoenix LiveView dashboards (`crucible_ui`, `cns_ui`, `ingot`) |
+| 2 | **Gateway** | API orchestration (`nsai_gateway`, `nsai_registry`) |
+| 3 | **Processing** | Kitchen (training), Forge (data), CNS (reasoning) |
+| 4 | **Core Framework** | Pipeline orchestration (`crucible_framework`, `crucible_ir`, `crucible_bench`) |
+| 5 | **MLOps** | Training and deployment (`crucible_train`, `crucible_model_registry`, `crucible_deployment`) |
+| 6 | **Reliability** | Safety and robustness (`LlmGuard`, `crucible_ensemble`, `crucible_hedging`) |
+| 7 | **Utilities** | Foundational libraries (`tiktoken_ex`, `embed_ex`, `hf_hub_ex`) |
 
----
+### Industrial Metaphors
 
-## Industrial Metaphors
+**Kitchen/Cookbook** (Training Infrastructure): The training stack uses culinary terminology. The Kitchen (`crucible_kitchen`) provides backend-agnostic infrastructure. The Cookbook (`tinkex_cookbook`) contains declarative training recipes. Practitioners are chefs who use these to produce trained models.
 
-### Kitchen/Cookbook (Training Infrastructure)
-
-The training stack uses culinary terminology to separate concerns:
-
-- **Kitchen** (`crucible_kitchen`): The infrastructure and orchestration engine. Backend-agnostic, handles compute provisioning, job scheduling, and resource management.
-- **Cookbook** (`tinkex_cookbook`): Training recipes and configurations. Declarative specifications for training runs that can be versioned and shared.
-- **Chef**: The ML practitioner who uses the kitchen and follows recipes to produce trained models.
-
-### Metalworking (Data Labeling Stack)
-
-The data labeling pipeline uses metalworking terminology to describe data transformation:
-
-- **Forge** (`forge`): Raw data processing factory. Takes unstructured inputs and shapes them into structured samples.
-- **Anvil** (`anvil`): Human-in-the-loop labeling and governance. Where careful refinement and quality control occur.
-- **Ingot** (`ingot`): Polished UI components. Production-ready Phoenix LiveView modules for labeling interfaces.
-- **Crucible**: ML experimentation. Where refined data undergoes testing and transformation under pressure.
-
----
-
-## Core Projects by Category
-
-### Crucible Reliability Stack
-
-Open research platform targeting 99%+ LLM reliability through ensembles, hedging, and statistical testing.
-
-| Repository | Description |
-|------------|-------------|
-{{CRUCIBLE_REPOS}}
-
-### Data Labeling (Metalworking)
-
-| Repository | Description |
-|------------|-------------|
-{{INGOT_REPOS}}
+**Metalworking** (Data Labeling): The data pipeline uses metalworking terminology. The Forge (`forge`) shapes raw data into structured samples. The Anvil (`anvil`) provides human-in-the-loop refinement and governance. Ingots (`ingot`) are production-ready Phoenix LiveView labeling interfaces. The Crucible is where refined data undergoes ML experimentation.
 
 ### CNS Dialectical Reasoning
 
-Critic-Network Synthesis: structured argumentation for AI reasoning transparency.
+Critic-Network Synthesis provides structured argumentation for AI reasoning transparency:
 
-| Repository | Description |
-|------------|-------------|
-{{RESEARCH_REPOS}}
-
-**CNS Dialectical Flow:**
 ```
 Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
      |                    |                         |
@@ -87,42 +47,35 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
   (claims+evidence) (B1 gaps, chirality)    (critic-guided)
 ```
 
-Critics: Grounding, Logic, Novelty, Bias, Causal
+**Critics:** Grounding, Logic, Novelty, Bias, Causal
 
-### Safety & Quality
-
-| Repository | Description |
-|------------|-------------|
-{{SAFETY_REPOS}}
-
-### Infrastructure
-
-| Repository | Description |
-|------------|-------------|
-{{INFRA_REPOS}}
-
-### Data & Utilities
-
-| Repository | Description |
-|------------|-------------|
-{{DATA_REPOS}}
+**Key Concepts:**
+- **SNO (Structured Narrative Objects)**: Claims with supporting evidence
+- **Beta-1 Gaps**: Missing supporting evidence
+- **Chirality**: Logical handedness of arguments
 
 ---
 
-## Public Sites
+## Repositories
 
-| Site | Purpose |
-|------|---------|
-| [nsai.online](https://nsai.online) | Corporate landing, architecture overview |
-| [nsai.store](https://nsai.store) | Open source packages catalog |
-| [nsai.space](https://nsai.space) | Research lab, CNS experiments |
+<!-- AUTO_GENERATED_START -->
+{{AUTO_GENERATED_CONTENT}}
+<!-- AUTO_GENERATED_END -->
+
+---
+
+## Resources
+
+| Resource | Description |
+|----------|-------------|
+| [Interactive Architecture](https://nsai.space/architecture.html) | Visual architecture explorer |
+| [Documentation](docs/ARCHITECTURE.md) | Full technical documentation |
+| [@nshkrdotcom](https://github.com/nshkrdotcom) | Personal projects and AI systems |
 
 ---
 
 **BEAM Native** | OTP supervision, telemetry, distributed resilience
 **Research Backed** | Every feature tied to reliability research
-**Production Ready** | Hex packages, docs, test suites
-
-[@nshkrdotcom](https://github.com/nshkrdotcom)
+**Production Ready** | Hex packages, documentation, test suites
 
 _Updated {{UPDATE_DATE}}_
