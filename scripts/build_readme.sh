@@ -176,9 +176,12 @@ fi
 # Read template and substitute placeholders
 TEMPLATE=$(cat templates/README.template.md)
 
+# Escape & characters in AUTO_CONTENT (& has special meaning in bash substitution)
+AUTO_CONTENT_ESCAPED="${AUTO_CONTENT//&/\\&}"
+
 OUTPUT="${TEMPLATE//\{\{REPO_COUNT\}\}/$TOTAL}"
 OUTPUT="${OUTPUT//\{\{UPDATE_DATE\}\}/$(date -u +%Y-%m-%d)}"
-OUTPUT="${OUTPUT//\{\{AUTO_GENERATED_CONTENT\}\}/$AUTO_CONTENT}"
+OUTPUT="${OUTPUT//\{\{AUTO_GENERATED_CONTENT\}\}/$AUTO_CONTENT_ESCAPED}"
 
 echo "$OUTPUT" > profile/README.md
 
