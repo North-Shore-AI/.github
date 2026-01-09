@@ -2,233 +2,258 @@
   "nodes": [
     {
       "id": "ExDataCheck",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Data validation and quality library for ML pipelines in Elixir"
     },
     {
       "id": "ExFairness",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Fairness and bias detection library for Elixir AI/ML systems"
     },
     {
       "id": "LlmGuard",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "AI Firewall and guardrails for LLM-based Elixir applications"
     },
     {
+      "id": "anvil",
+      "category": "Ingot Stack",
+      "description": "Labeling queue library for managing human labeling workflows"
+    },
+    {
+      "id": "batch_ir",
+      "category": "Schema",
+      "description": "Batch IR for standardized data interchange across training and inference backends. Covers text/token/chat/instruct batch types with encoding, validation, and portable schemas."
+    },
+    {
+      "id": "chz_ex",
+      "category": "Utilities",
+      "description": "Elixir port of OpenAI's chz library - a powerful configuration management system for building composable, type-safe command-line interfaces with hierarchical configuration, environment variable support, and flexible argument parsing"
+    },
+    {
+      "id": "cns",
+      "category": "Research",
+      "description": "Chiral Narrative Synthesis - Dialectical reasoning framework for automated knowledge discovery"
+    },
+    {
       "id": "cns_crucible",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": ""
     },
     {
+      "id": "cns_ui",
+      "category": "Research",
+      "description": "Phoenix LiveView interface for CNS dialectical reasoning experiments"
+    },
+    {
       "id": "crucible_adversary",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Adversarial testing and robustness evaluation for the Crucible framework"
     },
     {
       "id": "crucible_bench",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Statistical testing and analysis framework for AI research"
     },
     {
       "id": "crucible_datasets",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Dataset management and caching for AI research benchmarks"
     },
     {
       "id": "crucible_deployment",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "ML model deployment for the Crucible ecosystem. vLLM and Ollama integration, canary deployments, A/B testing, traffic routing, health checks, rollback strategies, and inference serving for Elixir-based ML workflows."
     },
     {
       "id": "crucible_ensemble",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Multi-model ensemble voting strategies for LLM reliability"
     },
     {
       "id": "crucible_examples",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Interactive Phoenix LiveView demonstrations of the Crucible Framework - showcasing ensemble voting, request hedging, statistical analysis, and more with mock LLMs"
     },
     {
       "id": "crucible_feedback",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "ML feedback loop management for the Crucible ecosystem. Quality monitoring, data drift detection, model performance tracking, data curation, active learning, human-in-the-loop workflows, and continuous improvement for Elixir-based ML."
     },
     {
       "id": "crucible_framework",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "CrucibleFramework: A scientific platform for LLM reliability research on the BEAM"
     },
     {
       "id": "crucible_harness",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Experimental research framework for running AI benchmarks at scale"
     },
     {
       "id": "crucible_hedging",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Request hedging for tail latency reduction in distributed systems"
     },
     {
       "id": "crucible_ir",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Intermediate Representation for the Crucible ML reliability ecosystem"
     },
     {
       "id": "crucible_kitchen",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Industrial ML training orchestration - backend-agnostic workflow engine for supervised, reinforcement, and preference learning. Provides composable workflows, declarative stage DSL, comprehensive telemetry, and port/adapter patterns for any ML backend. The missing orchestration layer that makes ML cookbooks trivially thin."
     },
     {
       "id": "crucible_model_registry",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "ML model registry for the Crucible ecosystem. Artifact storage, model versioning, lineage tracking, metadata management, model comparison, reproducibility, and integration with training pipelines for Elixir-based ML workflows."
     },
     {
+      "id": "crucible_prompts",
+      "category": "AI SDKs",
+      "description": "Prompt and parsing utilities for Crucible and NSAI. Provides templating, schema validation, structured output parsing, and tool-call helpers for consistent LLM IO."
+    },
+    {
       "id": "crucible_telemetry",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Advanced telemetry collection and analysis for AI research"
     },
     {
       "id": "crucible_trace",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Structured causal reasoning chain logging for LLM transparency"
     },
     {
       "id": "crucible_train",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "ML training orchestration for the Crucible ecosystem. Distributed training, hyperparameter optimization, checkpointing, model versioning, metrics collection, early stopping, LR scheduling, gradient accumulation, and mixed precision training with Nx/Scholar integration."
     },
     {
       "id": "crucible_ui",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Phoenix LiveView dashboard for the Crucible ML reliability stack"
     },
     {
       "id": "crucible_xai",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Explainable AI (XAI) tools for the Crucible framework"
     },
     {
       "id": "datasets_ex",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Dataset management library for ML experiments—loaders for SciFact, FEVER, GSM8K, HumanEval, MMLU, TruthfulQA, HellaSwag; git-like versioning with lineage tracking; transformation pipelines; quality validation with schema checks and duplicate detection; GenStage streaming for large datasets. Built for reproducible AI research."
     },
     {
+      "id": "embed_ex",
+      "category": "Data",
+      "description": "Vector embeddings service for Elixir—multi-provider support (OpenAI, Cohere, Voyage AI), intelligent caching with Cachex, batch processing with rate limiting, Nx-powered similarity computations, k-means/DBSCAN clustering, semantic deduplication, and ETS-based vector storage. Built for CNS and ML pipelines."
+    },
+    {
       "id": "eval_ex",
-      "category": "crucible",
+      "category": "Crucible Stack",
       "description": "Model evaluation harness for standardized benchmarking—comprehensive metrics (F1, BLEU, ROUGE, METEOR, BERTScore, pass@k), statistical analysis (confidence intervals, effect size, bootstrap CI, ANOVA), multi-model comparison, and report generation. Research-grade evaluation for LLM and ML experiments."
     },
     {
-      "id": "hf_datasets_ex",
-      "category": "crucible",
-      "description": "HuggingFace Datasets for Elixir - A native Elixir port of the popular HuggingFace datasets library. Stream, load, and process ML datasets from the HuggingFace Hub with full BEAM/OTP integration. Supports Parquet streaming, dataset splitting, shuffling, and seamless integration with Nx tensors for machine learning workflows."
-    },
-    {
-      "id": "metrics_ex",
-      "category": "crucible",
-      "description": "Metrics aggregation and alerting for ML experiments—multi-backend export (Prometheus, InfluxDB, Datadog, OpenTelemetry), advanced aggregations (percentiles, histograms, moving averages), threshold-based alerting with anomaly detection (z-score, IQR), and time-series storage. Research-grade observability for the NSAI ecosystem."
-    },
-    {
-      "id": "ingot",
-      "category": "ingot",
-      "description": "Phoenix LiveView interface for sample generation and human labeling workflows"
-    },
-    {
-      "id": "anvil",
-      "category": "ingot",
-      "description": "Labeling queue library for managing human labeling workflows"
+      "id": "ex_topology",
+      "category": "Data",
+      "description": "Pure Elixir library for graph topology, TDA, and computational topology"
     },
     {
       "id": "forge",
-      "category": "ingot",
+      "category": "Ingot Stack",
       "description": "Sample factory library for generating, transforming, and computing measurements on samples"
     },
     {
-      "id": "labeling_ir",
-      "category": "ingot",
-      "description": "Shared IR structs for the North Shore labeling stack (Forge/Anvil/Ingot) — typed datasets, samples, assignments, labels, artifacts, and evaluation runs for labeling workflows"
-    },
-    {
-      "id": "cns",
-      "category": "research",
-      "description": "Chiral Narrative Synthesis - Dialectical reasoning framework for automated knowledge discovery"
-    },
-    {
-      "id": "cns_ui",
-      "category": "research",
-      "description": "Phoenix LiveView interface for CNS dialectical reasoning experiments"
-    },
-    {
-      "id": "tinkerer",
-      "category": "infra",
-      "description": "Chiral Narrative Synthesis workspace for Thinker/Tinker LoRA pipelines, semantic fact-checking, telemetry, and reviewer-ready CNS docs."
-    },
-    {
-      "id": "tinkex",
-      "category": "infra",
-      "description": "Elixir SDK for the Tinker ML platform—LoRA training, sampling, and service orchestration built on OTP, Finch, and telemetry."
-    },
-    {
-      "id": "work",
-      "category": "infra",
-      "description": "NSAI.Work - Unified job scheduler for North-Shore-AI platform"
-    },
-    {
-      "id": "nsai_registry",
-      "category": "infra",
-      "description": "Service discovery and registry for the NSAI ecosystem—distributed registry with health checking, circuit breakers, multiple storage backends (ETS/PostgreSQL), PubSub event broadcasting, and comprehensive telemetry. Built on OTP with Horde-ready architecture for multi-node deployments."
-    },
-    {
-      "id": "pilot",
-      "category": "infra",
-      "description": "Interactive CLI and REPL for the NSAI ecosystem—unified interface to registry, gateway, jobs, experiments, datasets, embeddings, and metrics services; tab completion with bash/zsh scripts; configurable environments; JSON output mode for scripting; escript distribution. The cockpit for North Shore AI operations."
-    },
-    {
-      "id": "nsai_gateway",
-      "category": "infra",
-      "description": "Unified API gateway for the NSAI ecosystem—authentication (JWT, API keys, OAuth2/OIDC), distributed rate limiting with burst allowance, circuit breakers, request tracing, Prometheus metrics, and service proxying. Production-ready with comprehensive observability and multi-tenant support."
-    },
-    {
-      "id": "tiktoken_ex",
-      "category": "infra",
-      "description": "Pure Elixir TikToken-style byte-level BPE tokenizer (Kimi K2 compatible)."
-    },
-    {
-      "id": "tinkex_cookbook",
-      "category": "infra",
-      "description": "Elixir port of tinker-cookbook: training and evaluation recipes for the Tinker ML platform."
+      "id": "hf_datasets_ex",
+      "category": "Crucible Stack",
+      "description": "HuggingFace Datasets for Elixir - A native Elixir port of the popular HuggingFace datasets library. Stream, load, and process ML datasets from the HuggingFace Hub with full BEAM/OTP integration. Supports Parquet streaming, dataset splitting, shuffling, and seamless integration with Nx tensors for machine learning workflows."
     },
     {
       "id": "hf_hub_ex",
-      "category": "infra",
+      "category": "AI Infrastructure",
       "description": "Elixir client for HuggingFace Hub—dataset/model metadata, file downloads, caching, and authentication. The BEAM-native foundation for HF ecosystem ports."
     },
     {
       "id": "hf_peft_ex",
-      "category": "infra",
+      "category": "AI Infrastructure",
       "description": "Elixir port of HuggingFace's PEFT (Parameter-Efficient Fine-Tuning) library. Implements LoRA, AdaLoRA, IA3, prefix tuning, prompt tuning, and 30+ state-of-the-art PEFT methods for efficient neural network adaptation. Built for the BEAM ecosystem with native Nx/Axon integration."
     },
     {
-      "id": "ex_topology",
-      "category": "data",
-      "description": "Pure Elixir library for graph topology, TDA, and computational topology"
+      "id": "ingot",
+      "category": "Ingot Stack",
+      "description": "Phoenix LiveView interface for sample generation and human labeling workflows"
+    },
+    {
+      "id": "labeling_ir",
+      "category": "Ingot Stack",
+      "description": "Shared IR structs for the North Shore labeling stack (Forge/Anvil/Ingot) — typed datasets, samples, assignments, labels, artifacts, and evaluation runs for labeling workflows"
+    },
+    {
+      "id": "lineage_ir",
+      "category": "Observability",
+      "description": "Lineage IR for cross-system traces, spans, artifacts, and provenance edges. Provides a shared event envelope and sink interface for consolidation across runtimes."
+    },
+    {
+      "id": "metrics_ex",
+      "category": "Crucible Stack",
+      "description": "Metrics aggregation and alerting for ML experiments—multi-backend export (Prometheus, InfluxDB, Datadog, OpenTelemetry), advanced aggregations (percentiles, histograms, moving averages), threshold-based alerting with anomaly detection (z-score, IQR), and time-series storage. Research-grade observability for the NSAI ecosystem."
+    },
+    {
+      "id": "nsai_gateway",
+      "category": "AI Infrastructure",
+      "description": "Unified API gateway for the NSAI ecosystem—authentication (JWT, API keys, OAuth2/OIDC), distributed rate limiting with burst allowance, circuit breakers, request tracing, Prometheus metrics, and service proxying. Production-ready with comprehensive observability and multi-tenant support."
+    },
+    {
+      "id": "nsai_llm",
+      "category": "AI SDKs",
+      "description": "Shared LLM Actions for NSAI runtimes. Wraps PortfolioCore adapters with Jido.Action semantics and CrucibleIR.Backend input/output to centralize provider access."
+    },
+    {
+      "id": "nsai_registry",
+      "category": "AI Infrastructure",
+      "description": "Service discovery and registry for the NSAI ecosystem—distributed registry with health checking, circuit breakers, multiple storage backends (ETS/PostgreSQL), PubSub event broadcasting, and comprehensive telemetry. Built on OTP with Horde-ready architecture for multi-node deployments."
     },
     {
       "id": "nx_penalties",
-      "category": "data",
+      "category": "Data",
       "description": "Composable regularization penalties for Elixir Nx. L1/L2/Elastic Net, KL divergence, entropy, consistency, gradient penalty, orthogonality. Pure Nx.Defn for JIT across EXLA/Torchx. Pipeline composition and Axon.Loop integration."
     },
     {
-      "id": "embed_ex",
-      "category": "data",
-      "description": "Vector embeddings service for Elixir—multi-provider support (OpenAI, Cohere, Voyage AI), intelligent caching with Cachex, batch processing with rate limiting, Nx-powered similarity computations, k-means/DBSCAN clustering, semantic deduplication, and ETS-based vector storage. Built for CNS and ML pipelines."
+      "id": "pilot",
+      "category": "AI Infrastructure",
+      "description": "Interactive CLI and REPL for the NSAI ecosystem—unified interface to registry, gateway, jobs, experiments, datasets, embeddings, and metrics services; tab completion with bash/zsh scripts; configurable environments; JSON output mode for scripting; escript distribution. The cockpit for North Shore AI operations."
     },
     {
-      "id": "chz_ex",
-      "category": "utility",
-      "description": "Elixir port of OpenAI's chz library - a powerful configuration management system for building composable, type-safe command-line interfaces with hierarchical configuration, environment variable support, and flexible argument parsing"
+      "id": "tiktoken_ex",
+      "category": "AI Infrastructure",
+      "description": "Pure Elixir TikToken-style byte-level BPE tokenizer (Kimi K2 compatible)."
+    },
+    {
+      "id": "tinkerer",
+      "category": "AI Infrastructure",
+      "description": "Chiral Narrative Synthesis workspace for Thinker/Tinker LoRA pipelines, semantic fact-checking, telemetry, and reviewer-ready CNS docs."
+    },
+    {
+      "id": "tinkex",
+      "category": "AI Infrastructure",
+      "description": "Elixir SDK for the Tinker ML platform—LoRA training, sampling, and service orchestration built on OTP, Finch, and telemetry."
+    },
+    {
+      "id": "tinkex_cookbook",
+      "category": "AI Infrastructure",
+      "description": "Elixir port of tinker-cookbook: training and evaluation recipes for the Tinker ML platform."
+    },
+    {
+      "id": "training_ir",
+      "category": "Crucible Stack",
+      "description": "Training IR for reproducible ML jobs across Crucible and Kitchen. Defines model specs, adapters, learning config, checkpointing, validation, and resource envelopes to standardize training pipelines."
+    },
+    {
+      "id": "work",
+      "category": "AI Infrastructure",
+      "description": "NSAI.Work - Unified job scheduler for North-Shore-AI platform"
     }
   ],
   "edges": []
