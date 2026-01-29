@@ -216,6 +216,11 @@
       "description": "Service discovery and registry for the NSAI ecosystem—distributed registry with health checking, circuit breakers, multiple storage backends (ETS/PostgreSQL), PubSub event broadcasting, and comprehensive telemetry. Built on OTP with Horde-ready architecture for multi-node deployments."
     },
     {
+      "id": "nsai_work",
+      "category": "AI Infrastructure",
+      "description": "NSAI.Work - Unified job scheduler for North-Shore-AI platform"
+    },
+    {
       "id": "nx_penalties",
       "category": "Data",
       "description": "Composable regularization penalties for Elixir Nx. L1/L2/Elastic Net, KL divergence, entropy, consistency, gradient penalty, orthogonality. Pure Nx.Defn for JIT across EXLA/Torchx. Pipeline composition and Axon.Loop integration."
@@ -249,11 +254,6 @@
       "id": "training_ir",
       "category": "Crucible Stack",
       "description": "Training IR for reproducible ML jobs across Crucible and Kitchen. Defines model specs, adapters, learning config, checkpointing, validation, and resource envelopes to standardize training pipelines."
-    },
-    {
-      "id": "work",
-      "category": "AI Infrastructure",
-      "description": "NSAI.Work - Unified job scheduler for North-Shore-AI platform"
     }
   ],
   "edges": []

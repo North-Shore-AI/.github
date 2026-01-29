@@ -108,12 +108,12 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [hf_peft_ex](https://github.com/North-Shore-AI/hf_peft_ex) | Elixir port of HuggingFace's PEFT (Parameter-Efficient Fine-Tuning) library. ... |
 | [nsai_gateway](https://github.com/North-Shore-AI/nsai_gateway) | Unified API gateway for the NSAI ecosystem—authentication (JWT, API keys, OAu... |
 | [nsai_registry](https://github.com/North-Shore-AI/nsai_registry) | Service discovery and registry for the NSAI ecosystem—distributed registry wi... |
+| [nsai_work](https://github.com/North-Shore-AI/nsai_work) | NSAI.Work - Unified job scheduler for North-Shore-AI platform |
 | [pilot](https://github.com/North-Shore-AI/pilot) | Interactive CLI and REPL for the NSAI ecosystem—unified interface to registry... |
 | [tiktoken_ex](https://github.com/North-Shore-AI/tiktoken_ex) | Pure Elixir TikToken-style byte-level BPE tokenizer (Kimi K2 compatible). |
 | [tinkerer](https://github.com/North-Shore-AI/tinkerer) | Chiral Narrative Synthesis workspace for Thinker/Tinker LoRA pipelines, seman... |
 | [tinkex](https://github.com/North-Shore-AI/tinkex) | Elixir SDK for the Tinker ML platform—LoRA training, sampling, and service or... |
 | [tinkex_cookbook](https://github.com/North-Shore-AI/tinkex_cookbook) | Elixir port of tinker-cookbook: training and evaluation recipes for the Tinke... |
-| [work](https://github.com/North-Shore-AI/work) | NSAI.Work - Unified job scheduler for North-Shore-AI platform |
 
 ### AI SDKs
 
