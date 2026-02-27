@@ -174,4 +174,4 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 **Research Backed** | Every feature tied to reliability research
 **Production Ready** | Hex packages, documentation, test suites
 
-_Updated 2026-02-26_
+_Updated 2026-02-27_
