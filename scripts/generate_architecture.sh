@@ -5,77 +5,62 @@
 #
 # Sources: ONLY North-Shore-AI org repos
 #
-set -e
-cd "$(dirname "$0")/.."
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+CATEGORY_CONFIG="$PROJECT_DIR/config/nshkr_categories.json"
+ARCH_DOC="$PROJECT_DIR/docs/ARCHITECTURE.md"
+DEP_JSON="$PROJECT_DIR/docs/dependencies.json"
+
+source "$PROJECT_DIR/scripts/lib/nshkr_categories.sh"
+nshkr_load_category_config "$CATEGORY_CONFIG"
+
+cd "$PROJECT_DIR"
 
 echo "=== Generating Architecture Documentation ==="
-
-# Output files
-ARCH_DOC="docs/ARCHITECTURE.md"
-DEP_JSON="docs/dependencies.json"
-
-# Fetch all repos with topics (ONLY from North-Shore-AI)
 echo "Fetching repository metadata..."
+
 REPOS=$(gh api --paginate "orgs/North-Shore-AI/repos?per_page=100&type=public" | \
     jq '[.[] | select(.private == false and .archived == false and .fork == false) | {
         name: .name,
-        description: .description,
-        topics: .topics,
+        description: (.description // ""),
+        topics: (.topics // []),
         url: .html_url
     }]')
 
-# Known topic mappings
-declare -A TOPIC_NAMES=(
-    ["nshkr-ai-agents"]="AI Agents"
-    ["nshkr-ai-infra"]="AI Infrastructure"
-    ["nshkr-ai-sdk"]="AI SDKs"
-    ["nshkr-crucible"]="Crucible Stack"
-    ["nshkr-data"]="Data"
-    ["nshkr-devtools"]="Developer Tools"
-    ["nshkr-ingot"]="Ingot Stack"
-    ["nshkr-observability"]="Observability"
-    ["nshkr-otp"]="OTP"
-    ["nshkr-research"]="Research"
-    ["nshkr-schema"]="Schema"
-    ["nshkr-security"]="Security"
-    ["nshkr-testing"]="Testing"
-    ["nshkr-utility"]="Utilities"
-)
-
-# Function to convert unknown topic to display name
-topic_to_display() {
-    local topic="$1"
-    local suffix="${topic#nshkr-}"
-    echo "$suffix" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1'
-}
-
-# Categories based on nshkr-* topics
 echo "Categorizing repositories..."
 
-categorize_repos() {
-    echo "$REPOS" | jq -r --arg cat "$1" '.[] | select(.topics | index($cat)) | .name'
-}
-
-# Get repos for each known topic
-declare -A CATEGORY_REPOS
-for topic in "${!TOPIC_NAMES[@]}"; do
-    CATEGORY_REPOS["$topic"]=$(categorize_repos "$topic")
-done
-
-# Also get crucible_* prefix repos for crucible category
-CRUCIBLE_PREFIX=$(echo "$REPOS" | jq -r '.[] | select(.name | startswith("crucible_")) | .name')
-
-# Combine crucible repos
-ALL_CRUCIBLE=$(echo -e "${CATEGORY_REPOS[nshkr-crucible]}\n$CRUCIBLE_PREFIX" | sort -u | grep -v '^$' || true)
+CATEGORIZED=$(printf '%s\n' "$REPOS" | jq --arg archive "$NSHKR_ARCHIVE_SLUG" --arg uncategorized "$NSHKR_UNCATEGORIZED_SLUG" '
+    map(select((.topics // []) | index($archive) | not)) |
+    map(. + {
+        category: (
+            ((.topics // []) | map(select(startswith("nshkr-") and . != $archive)) | sort | first) //
+            (if (.name | startswith("crucible_")) then "nshkr-crucible" else $uncategorized end)
+        )
+    }) |
+    sort_by(.name)
+')
 
 echo ""
 echo "Repository counts by category:"
-for topic in "${!TOPIC_NAMES[@]}"; do
-    count=$(echo "${CATEGORY_REPOS[$topic]}" | grep -c . || echo "0")
-    echo "  ${TOPIC_NAMES[$topic]}: $count"
+mapfile -t DISCOVERED_TOPICS < <(printf '%s\n' "$CATEGORIZED" | jq -r '.[] | .category' | sort -u)
+mapfile -t ORDERED_TOPICS < <(printf '%s\n' "${DISCOVERED_TOPICS[@]}" | nshkr_build_ordered_topics)
+
+for topic in "${ORDERED_TOPICS[@]}"; do
+    count=$(printf '%s\n' "$CATEGORIZED" | jq --arg topic "$topic" '[.[] | select(.category == $topic)] | length')
+    if [[ "$count" -gt 0 ]]; then
+        echo "  $(nshkr_display_name_for_topic "$topic"): $count"
+    fi
 done
 
-# Parse mix.exs files to extract dependencies
+uncategorized_count=$(printf '%s\n' "$CATEGORIZED" | jq --arg uncategorized "$NSHKR_UNCATEGORIZED_SLUG" '
+    [.[] | select(.category == $uncategorized)] | length
+')
+if [[ "$uncategorized_count" -gt 0 ]]; then
+    echo "  $NSHKR_UNCATEGORIZED_NAME: $uncategorized_count"
+fi
+
 echo ""
 echo "Parsing mix.exs dependencies..."
 
@@ -83,7 +68,7 @@ parse_deps() {
     local repo_path="$1"
     local mix_file="$repo_path/mix.exs"
 
-    if [ -f "$mix_file" ]; then
+    if [[ -f "$mix_file" ]]; then
         grep -A 100 "defp deps" "$mix_file" 2>/dev/null | \
             grep -oE '\{:[a-z_]+' | \
             sed 's/{://' | \
@@ -91,89 +76,44 @@ parse_deps() {
     fi
 }
 
-# Build dependency graph JSON
 echo "Building dependency graph..."
 
 DEP_GRAPH='{"nodes":[],"edges":[]}'
-
-# Collect all categorized repos
-ALL_REPOS=""
-for topic in "${!TOPIC_NAMES[@]}"; do
-    ALL_REPOS+="${CATEGORY_REPOS[$topic]}"$'\n'
-done
-ALL_REPOS=$(echo "$ALL_REPOS" | sort -u | grep -v '^$' || true)
-
-# Add nodes for each repo
-for repo in $ALL_REPOS; do
-    # Determine category
-    category="other"
-    for topic in "${!TOPIC_NAMES[@]}"; do
-        if echo "${CATEGORY_REPOS[$topic]}" | grep -q "^${repo}$"; then
-            category="${TOPIC_NAMES[$topic]}"
-            break
-        fi
-    done
-
-    # Get description
-    desc=$(echo "$REPOS" | jq -r --arg n "$repo" '.[] | select(.name == $n) | .description // ""')
-
-    DEP_GRAPH=$(echo "$DEP_GRAPH" | jq --arg name "$repo" --arg cat "$category" --arg desc "$desc" \
-        '.nodes += [{"id": $name, "category": $cat, "description": $desc}]')
-done
-
-# Try to find local repos and parse their deps
+ALL_REPOS=$(printf '%s\n' "$CATEGORIZED" | jq -r '.[].name')
 NSAI_ROOT="${NSAI_ROOT:-/home/home/p/g/North-Shore-AI}"
 
 for repo in $ALL_REPOS; do
+    category_slug=$(printf '%s\n' "$CATEGORIZED" | jq -r --arg repo "$repo" '.[] | select(.name == $repo) | .category')
+    description=$(printf '%s\n' "$CATEGORIZED" | jq -r --arg repo "$repo" '.[] | select(.name == $repo) | .description')
+    category_name=$(nshkr_display_name_for_topic "$category_slug")
+
+    DEP_GRAPH=$(printf '%s\n' "$DEP_GRAPH" | jq --arg name "$repo" --arg cat "$category_name" --arg desc "$description" '
+        .nodes += [{"id": $name, "category": $cat, "description": $desc}]
+    ')
+done
+
+for repo in $ALL_REPOS; do
     repo_path="$NSAI_ROOT/$repo"
-    if [ -d "$repo_path" ]; then
+    if [[ -d "$repo_path" ]]; then
         deps=$(parse_deps "$repo_path")
         for dep in $deps; do
-            # Only add edge if dep is also in our repos
-            if echo "$ALL_REPOS" | grep -qw "$dep"; then
-                DEP_GRAPH=$(echo "$DEP_GRAPH" | jq --arg from "$repo" --arg to "$dep" \
-                    '.edges += [{"source": $from, "target": $to}]')
+            if printf '%s\n' "$ALL_REPOS" | grep -qw "$dep"; then
+                DEP_GRAPH=$(printf '%s\n' "$DEP_GRAPH" | jq --arg from "$repo" --arg to "$dep" '
+                    .edges += [{"source": $from, "target": $to}]
+                ')
             fi
         done
     fi
 done
 
-# Remove duplicate edges
-DEP_GRAPH=$(echo "$DEP_GRAPH" | jq '.edges |= unique')
+DEP_GRAPH=$(printf '%s\n' "$DEP_GRAPH" | jq '.nodes |= sort_by(.id) | .edges |= unique | .edges |= sort_by(.source, .target)')
 
-# Save dependency graph
-mkdir -p docs
-echo "$DEP_GRAPH" | jq '.' > "$DEP_JSON"
+mkdir -p "$PROJECT_DIR/docs"
+printf '%s\n' "$DEP_GRAPH" | jq '.' > "$DEP_JSON"
 echo "Saved dependency graph to $DEP_JSON"
 
-# Generate Mermaid from dependency graph
-echo ""
-echo "Generating Mermaid diagrams..."
-
-generate_mermaid() {
-    local category="$1"
-
-    echo "flowchart TB"
-
-    # Get nodes for this category
-    local nodes=$(echo "$DEP_GRAPH" | jq -r --arg cat "$category" '.nodes[] | select(.category == $cat) | .id')
-
-    for node in $nodes; do
-        echo "    $node[$node]"
-    done
-
-    # Get edges where source is in this category
-    for node in $nodes; do
-        local targets=$(echo "$DEP_GRAPH" | jq -r --arg src "$node" '.edges[] | select(.source == $src) | .target')
-        for target in $targets; do
-            echo "    $node --> $target"
-        done
-    done
-}
-
-# Update the date in ARCHITECTURE.md if it exists
-if [ -f "$ARCH_DOC" ]; then
-    sed -i "s/{{UPDATE_DATE}}/$(date -u +%Y-%m-%d)/g" "$ARCH_DOC"
+if [[ -f "$ARCH_DOC" ]]; then
+    sed -i "s/_Last updated: .*/_Last updated: $(date -u +%Y-%m-%d)_/" "$ARCH_DOC"
 fi
 
 echo ""

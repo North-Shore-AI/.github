@@ -100,6 +100,13 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [ingot](https://github.com/North-Shore-AI/ingot) | Phoenix LiveView interface for sample generation and human labeling workflows |
 | [labeling_ir](https://github.com/North-Shore-AI/labeling_ir) | Shared IR structs for the North Shore labeling stack (Forge/Anvil/Ingot) — ty... |
 
+### AI SDKs
+
+| Repository | Description |
+|------------|-------------|
+| [crucible_prompts](https://github.com/North-Shore-AI/crucible_prompts) | Prompt and parsing utilities for Crucible and NSAI. Provides templating, sche... |
+| [nsai_llm](https://github.com/North-Shore-AI/nsai_llm) | Shared LLM Actions for NSAI runtimes. Wraps PortfolioCore adapters with Jido.... |
+
 ### AI Infrastructure
 
 | Repository | Description |
@@ -115,25 +122,11 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [tinkex](https://github.com/North-Shore-AI/tinkex) | Elixir SDK for the Tinker ML platform—LoRA training, sampling, and service or... |
 | [tinkex_cookbook](https://github.com/North-Shore-AI/tinkex_cookbook) | Elixir port of tinker-cookbook: training and evaluation recipes for the Tinke... |
 
-### AI SDKs
-
-| Repository | Description |
-|------------|-------------|
-| [crucible_prompts](https://github.com/North-Shore-AI/crucible_prompts) | Prompt and parsing utilities for Crucible and NSAI. Provides templating, sche... |
-| [nsai_llm](https://github.com/North-Shore-AI/nsai_llm) | Shared LLM Actions for NSAI runtimes. Wraps PortfolioCore adapters with Jido.... |
-
 ### Schema
 
 | Repository | Description |
 |------------|-------------|
 | [batch_ir](https://github.com/North-Shore-AI/batch_ir) | Batch IR for standardized data interchange across training and inference back... |
-
-### Research
-
-| Repository | Description |
-|------------|-------------|
-| [cns](https://github.com/North-Shore-AI/cns) | Chiral Narrative Synthesis - Dialectical reasoning framework for automated kn... |
-| [cns_ui](https://github.com/North-Shore-AI/cns_ui) | Phoenix LiveView interface for CNS dialectical reasoning experiments |
 
 ### Observability
 
@@ -148,6 +141,13 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [embed_ex](https://github.com/North-Shore-AI/embed_ex) | Vector embeddings service for Elixir—multi-provider support (OpenAI, Cohere, ... |
 | [ex_topology](https://github.com/North-Shore-AI/ex_topology) | Pure Elixir library for graph topology, TDA, and computational topology |
 | [nx_penalties](https://github.com/North-Shore-AI/nx_penalties) | Composable regularization penalties for Elixir Nx. L1/L2/Elastic Net, KL dive... |
+
+### Research
+
+| Repository | Description |
+|------------|-------------|
+| [cns](https://github.com/North-Shore-AI/cns) | Chiral Narrative Synthesis - Dialectical reasoning framework for automated kn... |
+| [cns_ui](https://github.com/North-Shore-AI/cns_ui) | Phoenix LiveView interface for CNS dialectical reasoning experiments |
 
 ### Utilities
 

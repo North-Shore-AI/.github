@@ -13,6 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Validate category config and scripts
+        run: |
+          jq -e '.categories | type == "array" and length > 0' config/nshkr_categories.json > /dev/null
+          bash -n scripts/lib/nshkr_categories.sh
+          bash -n scripts/build_readme.sh
+          bash -n scripts/generate_architecture.sh
+
       - name: Build README
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
