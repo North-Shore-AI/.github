@@ -16,9 +16,9 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     env:
-      SITE_SYNC_TOKEN: ${{ secrets.NSHKR_SITE_SYNC_TOKEN != '' && secrets.NSHKR_SITE_SYNC_TOKEN || github.token }}
+      SITE_SYNC_TOKEN: ${{ secrets.NSHKR_SITE_SYNC_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,7 +55,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: Dispatch site sync
-        if: steps.changes.outputs.paths != ''
+        if: env.SITE_SYNC_TOKEN != '' && steps.changes.outputs.paths != ''
         uses: actions/github-script@v7
         env:
           CHANGED_PATHS: ${{ steps.changes.outputs.paths }}
@@ -76,8 +76,14 @@ jobs:
               }
             });
 
-      - name: Log dispatch payload
+      - name: Skip direct dispatch
+        if: env.SITE_SYNC_TOKEN == '' && steps.changes.outputs.paths != ''
+        run: |
+          echo "NSHKR_SITE_SYNC_TOKEN is not configured."
+          echo "nshkrdotcom.github.io will still detect these README/logo changes on its scheduled source-change scan."
+
+      - name: Log changed paths
         if: steps.changes.outputs.paths != ''
         run: |
-          echo "Dispatched site sync for ${{ github.repository }}@${{ github.sha }}"
+          echo "Relevant source changes detected in ${{ github.repository }}@${{ github.sha }}"
           echo '${{ steps.changes.outputs.paths }}'
