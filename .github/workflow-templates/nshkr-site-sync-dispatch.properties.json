@@ -1,0 +1,9 @@
+{
+  "name": "Notify nshkrdotcom.github.io",
+  "description": "Dispatch the shared site sync workflow when README or logo assets change.",
+  "iconName": "rocket",
+  "categories": [
+    "deployment",
+    "automation"
+  ]
+}

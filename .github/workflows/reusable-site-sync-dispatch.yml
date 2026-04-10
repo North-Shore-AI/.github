@@ -1,0 +1,83 @@
+name: Reusable Site Sync Dispatch
+
+on:
+  workflow_call:
+    inputs:
+      site_owner:
+        required: false
+        type: string
+        default: "nshkrdotcom"
+      site_repo:
+        required: false
+        type: string
+        default: "nshkrdotcom.github.io"
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      SITE_SYNC_TOKEN: ${{ secrets.NSHKR_SITE_SYNC_TOKEN != '' && secrets.NSHKR_SITE_SYNC_TOKEN || github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Collect changed paths
+        id: changes
+        shell: bash
+        run: |
+          before="${{ github.event.before || '' }}"
+          if [[ -z "$before" ]] || [[ "$before" =~ ^0+$ ]]; then
+            mapfile -t changed_paths < <(git ls-tree -r --name-only "${{ github.sha }}")
+          else
+            mapfile -t changed_paths < <(git diff --name-only "$before" "${{ github.sha }}")
+          fi
+
+          filtered=()
+          for path in "${changed_paths[@]}"; do
+            if [[ "$path" =~ ^README($|\.) ]] || \
+               [[ "$path" =~ ^assets/ ]] || \
+               [[ "$path" =~ ^logo/ ]] || \
+               [[ "$path" =~ ^logos/ ]] || \
+               [[ "$path" =~ ^static/ ]] || \
+               [[ "$path" =~ ^docs/.*\.(svg|png|jpe?g|webp|gif)$ ]]; then
+              filtered+=("$path")
+            fi
+          done
+
+          {
+            echo "paths<<EOF"
+            printf '%s\n' "${filtered[@]}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch site sync
+        if: steps.changes.outputs.paths != ''
+        uses: actions/github-script@v7
+        env:
+          CHANGED_PATHS: ${{ steps.changes.outputs.paths }}
+        with:
+          github-token: ${{ env.SITE_SYNC_TOKEN }}
+          script: |
+            const changedPaths = (process.env.CHANGED_PATHS || "").split("\n").filter(Boolean);
+            await github.rest.repos.createDispatchEvent({
+              owner: "${{ inputs.site_owner }}",
+              repo: "${{ inputs.site_repo }}",
+              event_type: "source-assets-updated",
+              client_payload: {
+                source_owner: context.repo.owner,
+                source_repo: context.repo.repo,
+                source_ref: context.ref,
+                source_sha: context.sha,
+                changed_paths: changedPaths
+              }
+            });
+
+      - name: Log dispatch payload
+        if: steps.changes.outputs.paths != ''
+        run: |
+          echo "Dispatched site sync for ${{ github.repository }}@${{ github.sha }}"
+          echo '${{ steps.changes.outputs.paths }}'

@@ -1,0 +1,24 @@
+name: Notify nshkrdotcom.github.io
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "README"
+      - "README.*"
+      - "assets/**"
+      - "logo/**"
+      - "logos/**"
+      - "static/**"
+      - "docs/**/*.svg"
+      - "docs/**/*.png"
+      - "docs/**/*.jpg"
+      - "docs/**/*.jpeg"
+      - "docs/**/*.webp"
+      - "docs/**/*.gif"
+  workflow_dispatch:
+
+jobs:
+  dispatch:
+    uses: North-Shore-AI/.github/.github/workflows/reusable-site-sync-dispatch.yml@main
+    secrets: inherit

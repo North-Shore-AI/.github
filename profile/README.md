@@ -170,6 +170,14 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 
 ---
 
+## Site Sync
+
+`nshkrdotcom.github.io` now publishes repo logos under content-hash paths such as `/logos/{repo}-{sha12}.svg`, so downstream logo URLs are intentionally versioned instead of stable `/logos/{repo}.svg` aliases.
+
+Org repos can opt into immediate site refreshes with the workflow template in `.github/workflow-templates/nshkr-site-sync-dispatch.yml`.
+
+---
+
 **BEAM Native** | OTP supervision, telemetry, distributed resilience
 **Research Backed** | Every feature tied to reliability research
 **Production Ready** | Hex packages, documentation, test suites
