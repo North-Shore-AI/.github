@@ -18,6 +18,9 @@ on:
       - "docs/**/*.gif"
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   dispatch:
     uses: ./.github/workflows/reusable-site-sync-dispatch.yml
