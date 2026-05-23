@@ -76,6 +76,11 @@
       "description": "Interactive Phoenix LiveView demonstrations of the Crucible Framework - showcasing ensemble voting, request hedging, statistical analysis, and more with mock LLMs"
     },
     {
+      "id": "crucible_factorization",
+      "category": "Crucible Stack",
+      "description": ""
+    },
+    {
       "id": "crucible_feedback",
       "category": "Crucible Stack",
       "description": "ML feedback loop management for the Crucible ecosystem. Quality monitoring, data drift detection, model performance tracking, data curation, active learning, human-in-the-loop workflows, and continuous improvement for Elixir-based ML."
@@ -116,9 +121,19 @@
       "description": "Prompt and parsing utilities for Crucible and NSAI. Provides templating, schema validation, structured output parsing, and tool-call helpers for consistent LLM IO."
     },
     {
+      "id": "crucible_safetensors",
+      "category": "Crucible Stack",
+      "description": ""
+    },
+    {
       "id": "crucible_telemetry",
       "category": "Crucible Stack",
       "description": "Advanced telemetry collection and analysis for AI research"
+    },
+    {
+      "id": "crucible_tensor_patch",
+      "category": "Crucible Stack",
+      "description": ""
     },
     {
       "id": "crucible_trace",

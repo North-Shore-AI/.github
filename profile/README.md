@@ -4,7 +4,7 @@
 
 > Building the ML reliability research ecosystem that Elixir deserves.
 
-**51 repositories** | [nsai.online](https://nsai.online) | [nsai.space](https://nsai.space) | [nsai.store](https://nsai.store)
+**54 repositories** | [nsai.online](https://nsai.online) | [nsai.space](https://nsai.space) | [nsai.store](https://nsai.store)
 
 ---
 
@@ -155,6 +155,14 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 |------------|-------------|
 | [chz_ex](https://github.com/North-Shore-AI/chz_ex) | Elixir port of OpenAI's chz library - a powerful configuration management sys... |
 
+### Other
+
+| Repository | Description |
+|------------|-------------|
+| [crucible_factorization](https://github.com/North-Shore-AI/crucible_factorization) |  |
+| [crucible_safetensors](https://github.com/North-Shore-AI/crucible_safetensors) |  |
+| [crucible_tensor_patch](https://github.com/North-Shore-AI/crucible_tensor_patch) |  |
+
 
 <!-- AUTO_GENERATED_END -->
 
@@ -182,4 +190,4 @@ Org repos can opt into immediate site refreshes with the workflow template in `.
 **Research Backed** | Every feature tied to reliability research
 **Production Ready** | Hex packages, documentation, test suites
 
-_Updated 2026-05-22_
+_Updated 2026-05-23_
