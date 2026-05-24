@@ -73,6 +73,7 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [crucible_deployment](https://github.com/North-Shore-AI/crucible_deployment) | ML model deployment for the Crucible ecosystem. vLLM and Ollama integration, ... |
 | [crucible_ensemble](https://github.com/North-Shore-AI/crucible_ensemble) | Multi-model ensemble voting strategies for LLM reliability |
 | [crucible_examples](https://github.com/North-Shore-AI/crucible_examples) | Interactive Phoenix LiveView demonstrations of the Crucible Framework - showc... |
+| [crucible_factorization](https://github.com/North-Shore-AI/crucible_factorization) | Nx SVD/SVF factorization primitives for neural network model surgery and TRIN... |
 | [crucible_feedback](https://github.com/North-Shore-AI/crucible_feedback) | ML feedback loop management for the Crucible ecosystem. Quality monitoring, d... |
 | [crucible_framework](https://github.com/North-Shore-AI/crucible_framework) | CrucibleFramework: A scientific platform for LLM reliability research on the ... |
 | [crucible_harness](https://github.com/North-Shore-AI/crucible_harness) | Experimental research framework for running AI benchmarks at scale |
@@ -80,7 +81,9 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [crucible_ir](https://github.com/North-Shore-AI/crucible_ir) | Intermediate Representation for the Crucible ML reliability ecosystem |
 | [crucible_kitchen](https://github.com/North-Shore-AI/crucible_kitchen) | Industrial ML training orchestration - backend-agnostic workflow engine for s... |
 | [crucible_model_registry](https://github.com/North-Shore-AI/crucible_model_registry) | ML model registry for the Crucible ecosystem. Artifact storage, model version... |
+| [crucible_safetensors](https://github.com/North-Shore-AI/crucible_safetensors) | SafeTensors parsing, validation, bounded slicing, checksums, deterministic wr... |
 | [crucible_telemetry](https://github.com/North-Shore-AI/crucible_telemetry) | Advanced telemetry collection and analysis for AI research |
+| [crucible_tensor_patch](https://github.com/North-Shore-AI/crucible_tensor_patch) | Deterministic tensor patch plans, patch application, and tensor path traversa... |
 | [crucible_trace](https://github.com/North-Shore-AI/crucible_trace) | Structured causal reasoning chain logging for LLM transparency |
 | [crucible_train](https://github.com/North-Shore-AI/crucible_train) | ML training orchestration for the Crucible ecosystem. Distributed training, h... |
 | [crucible_ui](https://github.com/North-Shore-AI/crucible_ui) | Phoenix LiveView dashboard for the Crucible ML reliability stack |
@@ -155,14 +158,6 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 |------------|-------------|
 | [chz_ex](https://github.com/North-Shore-AI/chz_ex) | Elixir port of OpenAI's chz library - a powerful configuration management sys... |
 
-### Other
-
-| Repository | Description |
-|------------|-------------|
-| [crucible_factorization](https://github.com/North-Shore-AI/crucible_factorization) |  |
-| [crucible_safetensors](https://github.com/North-Shore-AI/crucible_safetensors) |  |
-| [crucible_tensor_patch](https://github.com/North-Shore-AI/crucible_tensor_patch) |  |
-
 
 <!-- AUTO_GENERATED_END -->
 
@@ -190,4 +185,4 @@ Org repos can opt into immediate site refreshes with the workflow template in `.
 **Research Backed** | Every feature tied to reliability research
 **Production Ready** | Hex packages, documentation, test suites
 
-_Updated 2026-05-23_
+_Updated 2026-05-24_

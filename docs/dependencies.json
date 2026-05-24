@@ -78,7 +78,7 @@
     {
       "id": "crucible_factorization",
       "category": "Crucible Stack",
-      "description": ""
+      "description": "Nx SVD/SVF factorization primitives for neural network model surgery and TRINITY artifact export."
     },
     {
       "id": "crucible_feedback",
@@ -123,7 +123,7 @@
     {
       "id": "crucible_safetensors",
       "category": "Crucible Stack",
-      "description": ""
+      "description": "SafeTensors parsing, validation, bounded slicing, checksums, deterministic writing, and row-chunk helpers for Elixir and Nx."
     },
     {
       "id": "crucible_telemetry",
@@ -133,7 +133,7 @@
     {
       "id": "crucible_tensor_patch",
       "category": "Crucible Stack",
-      "description": ""
+      "description": "Deterministic tensor patch plans, patch application, and tensor path traversal for neural network model surgery."
     },
     {
       "id": "crucible_trace",
