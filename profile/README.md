@@ -4,7 +4,7 @@
 
 > Building the ML reliability research ecosystem that Elixir deserves.
 
-**54 repositories** | [nsai.online](https://nsai.online) | [nsai.space](https://nsai.space) | [nsai.store](https://nsai.store)
+**59 repositories** | [nsai.online](https://nsai.online) | [nsai.space](https://nsai.space) | [nsai.store](https://nsai.store)
 
 ---
 
@@ -69,6 +69,7 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [cns_crucible](https://github.com/North-Shore-AI/cns_crucible) |  |
 | [crucible_adversary](https://github.com/North-Shore-AI/crucible_adversary) | Adversarial testing and robustness evaluation for the Crucible framework |
 | [crucible_bench](https://github.com/North-Shore-AI/crucible_bench) | Statistical testing and analysis framework for AI research |
+| [crucible_bumblebee](https://github.com/North-Shore-AI/crucible_bumblebee) | Bumblebee, Axon, and Nx adapter layer for compiling Crucible tap plans into m... |
 | [crucible_datasets](https://github.com/North-Shore-AI/crucible_datasets) | Dataset management and caching for AI research benchmarks |
 | [crucible_deployment](https://github.com/North-Shore-AI/crucible_deployment) | ML model deployment for the Crucible ecosystem. vLLM and Ollama integration, ... |
 | [crucible_ensemble](https://github.com/North-Shore-AI/crucible_ensemble) | Multi-model ensemble voting strategies for LLM reliability |
@@ -81,7 +82,11 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [crucible_ir](https://github.com/North-Shore-AI/crucible_ir) | Intermediate Representation for the Crucible ML reliability ecosystem |
 | [crucible_kitchen](https://github.com/North-Shore-AI/crucible_kitchen) | Industrial ML training orchestration - backend-agnostic workflow engine for s... |
 | [crucible_model_registry](https://github.com/North-Shore-AI/crucible_model_registry) | ML model registry for the Crucible ecosystem. Artifact storage, model version... |
+| [crucible_policy](https://github.com/North-Shore-AI/crucible_policy) | Routing, gating, fusion, uncertainty, verifier, shared memory, and steering d... |
 | [crucible_safetensors](https://github.com/North-Shore-AI/crucible_safetensors) | SafeTensors parsing, validation, bounded slicing, checksums, deterministic wr... |
+| [crucible_signal](https://github.com/North-Shore-AI/crucible_signal) | Canonical Elixir signal ontology for transformer forward-pass artifacts, tens... |
+| [crucible_signal_trace](https://github.com/North-Shore-AI/crucible_signal_trace) | Bounded forward-pass trace schema and persistence helpers for Crucible signal... |
+| [crucible_tap](https://github.com/North-Shore-AI/crucible_tap) | Tap-plan and probe-contract library for selecting, bounding, and negotiating ... |
 | [crucible_telemetry](https://github.com/North-Shore-AI/crucible_telemetry) | Advanced telemetry collection and analysis for AI research |
 | [crucible_tensor_patch](https://github.com/North-Shore-AI/crucible_tensor_patch) | Deterministic tensor patch plans, patch application, and tensor path traversa... |
 | [crucible_trace](https://github.com/North-Shore-AI/crucible_trace) | Structured causal reasoning chain logging for LLM transparency |

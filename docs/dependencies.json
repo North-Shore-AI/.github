@@ -56,6 +56,11 @@
       "description": "Statistical testing and analysis framework for AI research"
     },
     {
+      "id": "crucible_bumblebee",
+      "category": "Crucible Stack",
+      "description": "Bumblebee, Axon, and Nx adapter layer for compiling Crucible tap plans into model runs, hooks, traces, and decode steering."
+    },
+    {
       "id": "crucible_datasets",
       "category": "Crucible Stack",
       "description": "Dataset management and caching for AI research benchmarks"
@@ -116,6 +121,11 @@
       "description": "ML model registry for the Crucible ecosystem. Artifact storage, model versioning, lineage tracking, metadata management, model comparison, reproducibility, and integration with training pipelines for Elixir-based ML workflows."
     },
     {
+      "id": "crucible_policy",
+      "category": "Crucible Stack",
+      "description": "Routing, gating, fusion, uncertainty, verifier, shared memory, and steering decision contracts over Crucible signal traces."
+    },
+    {
       "id": "crucible_prompts",
       "category": "AI SDKs",
       "description": "Prompt and parsing utilities for Crucible and NSAI. Provides templating, schema validation, structured output parsing, and tool-call helpers for consistent LLM IO."
@@ -124,6 +134,21 @@
       "id": "crucible_safetensors",
       "category": "Crucible Stack",
       "description": "SafeTensors parsing, validation, bounded slicing, checksums, deterministic writing, and row-chunk helpers for Elixir and Nx."
+    },
+    {
+      "id": "crucible_signal",
+      "category": "Crucible Stack",
+      "description": "Canonical Elixir signal ontology for transformer forward-pass artifacts, tensor summaries, capabilities, and internal-control surfaces."
+    },
+    {
+      "id": "crucible_signal_trace",
+      "category": "Crucible Stack",
+      "description": "Bounded forward-pass trace schema and persistence helpers for Crucible signal captures, layer trajectories, and decode telemetry."
+    },
+    {
+      "id": "crucible_tap",
+      "category": "Crucible Stack",
+      "description": "Tap-plan and probe-contract library for selecting, bounding, and negotiating model-internal forward-pass observations."
     },
     {
       "id": "crucible_telemetry",
