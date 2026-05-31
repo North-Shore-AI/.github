@@ -131,6 +131,11 @@
       "description": "Prompt and parsing utilities for Crucible and NSAI. Provides templating, schema validation, structured output parsing, and tool-call helpers for consistent LLM IO."
     },
     {
+      "id": "crucible_provider_contracts",
+      "category": "Crucible Stack",
+      "description": "Formal Provider behaviour, ABI specifications, shared structs, and contract test suites for Crucible model and robotics providers."
+    },
+    {
       "id": "crucible_safetensors",
       "category": "Crucible Stack",
       "description": "SafeTensors parsing, validation, bounded slicing, checksums, deterministic writing, and row-chunk helpers for Elixir and Nx."

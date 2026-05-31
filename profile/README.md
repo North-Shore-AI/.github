@@ -4,7 +4,7 @@
 
 > Building the ML reliability research ecosystem that Elixir deserves.
 
-**59 repositories** | [nsai.online](https://nsai.online) | [nsai.space](https://nsai.space) | [nsai.store](https://nsai.store)
+**60 repositories** | [nsai.online](https://nsai.online) | [nsai.space](https://nsai.space) | [nsai.store](https://nsai.store)
 
 ---
 
@@ -83,6 +83,7 @@ Proposer (thesis) -> Antagonist (antithesis) -> Synthesizer (synthesis)
 | [crucible_kitchen](https://github.com/North-Shore-AI/crucible_kitchen) | Industrial ML training orchestration - backend-agnostic workflow engine for s... |
 | [crucible_model_registry](https://github.com/North-Shore-AI/crucible_model_registry) | ML model registry for the Crucible ecosystem. Artifact storage, model version... |
 | [crucible_policy](https://github.com/North-Shore-AI/crucible_policy) | Routing, gating, fusion, uncertainty, verifier, shared memory, and steering d... |
+| [crucible_provider_contracts](https://github.com/North-Shore-AI/crucible_provider_contracts) | Formal Provider behaviour, ABI specifications, shared structs, and contract t... |
 | [crucible_safetensors](https://github.com/North-Shore-AI/crucible_safetensors) | SafeTensors parsing, validation, bounded slicing, checksums, deterministic wr... |
 | [crucible_signal](https://github.com/North-Shore-AI/crucible_signal) | Canonical Elixir signal ontology for transformer forward-pass artifacts, tens... |
 | [crucible_signal_trace](https://github.com/North-Shore-AI/crucible_signal_trace) | Bounded forward-pass trace schema and persistence helpers for Crucible signal... |
@@ -190,4 +191,4 @@ Org repos can opt into immediate site refreshes with the workflow template in `.
 **Research Backed** | Every feature tied to reliability research
 **Production Ready** | Hex packages, documentation, test suites
 
-_Updated 2026-05-30_
+_Updated 2026-05-31_
