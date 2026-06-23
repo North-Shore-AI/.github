@@ -191,4 +191,4 @@ Org repos can opt into immediate site refreshes with the workflow template in `.
 **Research Backed** | Every feature tied to reliability research
 **Production Ready** | Hex packages, documentation, test suites
 
-_Updated 2026-06-22_
+_Updated 2026-06-23_
