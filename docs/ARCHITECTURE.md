@@ -757,4 +757,4 @@ The script parses:
 
 ---
 
-_Last updated: 2026-10-04_
+_Last updated: 2026-10-05_
